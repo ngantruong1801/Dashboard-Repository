@@ -25,5 +25,13 @@ namespace TA_Dashboard.PageObjects
         {
             return Constant.driver.FindElement(control).Text;
         }
+        public void ConfirmPopup()
+        {
+            Constant.driver.SwitchTo().Alert().Accept();
+        }
+        public string GetTextOfPopup()
+        {
+            return Constant.driver.SwitchTo().Alert().Text;
+        }
     }
 }
