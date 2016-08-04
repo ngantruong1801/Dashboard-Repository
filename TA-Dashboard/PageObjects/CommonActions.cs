@@ -12,24 +12,28 @@ namespace TA_Dashboard.PageObjects
 {
     public class CommonActions
     {
-        public void Click(By control)
+        public IWebElement FindWebElement(By locator)
         {
-            Constant.driver.FindElement(control).Click();
+            return Constant.driver.FindElement(locator);
         }
-        public void Type(By control, string value)
+        //public void Click(By locator)
+        //{
+        //    FindWebElement(locator).Click();
+        //}
+        public void EnterValue(By locator, string value)
         {
-            Constant.driver.FindElement(control).Clear();
-            Constant.driver.FindElement(control).SendKeys(value);
+            FindWebElement(locator).Clear();
+            FindWebElement(locator).SendKeys(value);
         }
-        public string GetTextOfControl(By control)
+        public string GetTextControl(By locator)
         {
-            return Constant.driver.FindElement(control).Text;
+            return Constant.driver.FindElement(locator).Text;
         }
         public void ConfirmPopup()
         {
             Constant.driver.SwitchTo().Alert().Accept();
         }
-        public string GetTextOfPopup()
+        public string GetTextPopup()
         {
             return Constant.driver.SwitchTo().Alert().Text;
         }
