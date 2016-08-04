@@ -65,6 +65,7 @@
     <Compile Include="PageObjects\DataProfiles.cs" />
     <Compile Include="PageObjects\EditPage.cs" />
     <Compile Include="PageObjects\EditPanel.cs" />
+    <Compile Include="PageObjects\General.cs" />
     <Compile Include="PageObjects\GeneralSettings.cs" />
     <Compile Include="PageObjects\Login.cs" />
     <Compile Include="PageObjects\Main.cs" />
