@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Common\Constant.cs" />
     <Compile Include="PageObjects\AddNewPanel.cs" />
-    <Compile Include="PageObjects\CommonActions.cs" />
+    <Compile Include="Common\CommonActions.cs" />
     <Compile Include="PageObjects\DataProfiles.cs" />
     <Compile Include="PageObjects\EditPage.cs" />
     <Compile Include="PageObjects\EditPanel.cs" />
