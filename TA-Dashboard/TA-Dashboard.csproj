@@ -61,7 +61,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Common\Constant.cs" />
     <Compile Include="PageObjects\AddNewPanel.cs" />
+    <Compile Include="PageObjects\CommonActions.cs" />
     <Compile Include="PageObjects\DataProfiles.cs" />
     <Compile Include="PageObjects\EditPage.cs" />
     <Compile Include="PageObjects\EditPanel.cs" />
@@ -118,7 +120,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="TestCases\" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
