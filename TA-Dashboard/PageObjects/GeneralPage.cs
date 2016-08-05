@@ -13,7 +13,9 @@ namespace TA_Dashboard.PageObjects
     public class GeneralPage
     {
         #region Locators
-        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        //public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        public static readonly By _tabUser = By.XPath("//a[text() = 'administrator']");
+
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
