@@ -69,14 +69,20 @@ namespace TA_Dashboard.PageObjects
                 MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
             }
-
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
         }
-
+        public void ClickTab(string tabName)
+        {
+            FindWebElement(By.XPath("//a[.='"+tabName+"']")).Click();
+        }
+        public void ClickButtonChosePanels()
+        {
+            FindWebElement(MainPage._btnChoosePanels).Click();
+        }
     }
 }
 
