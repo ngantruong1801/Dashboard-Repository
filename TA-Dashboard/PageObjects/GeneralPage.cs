@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 
 namespace TA_Dashboard.PageObjects
 {
@@ -65,11 +66,27 @@ namespace TA_Dashboard.PageObjects
         {
             if (IsElementPresent(MainPage._tabUser) == true)
             {
-                Click(MainPage._tabUser);
+                MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
             }
 
         }
+        public void MouseHover(By locator)
+        {
+            Actions action = new Actions(Constant.driver);
+            action.MoveToElement(FindWebElement(locator)).Perform();
+        }
 
+        public static void WaitForElementLoad(By locator, int timeoutInSeconds)
+        {
+            if (timeoutInSeconds > 0)
+            {
+                WebDriverWait wait = new WebDriverWait(Constant.driver, TimeSpan.FromSeconds(timeoutInSeconds));
+                wait.Until(ExpectedConditions.ElementIsVisible(locator));
+            }
+        }
     }
 }
+
+
+
