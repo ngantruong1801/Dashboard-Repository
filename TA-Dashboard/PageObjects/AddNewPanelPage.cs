@@ -8,5 +8,6 @@ namespace TA_Dashboard.PageObjects
 {
     class AddNewPanelPage
     {
+
     }
 }
