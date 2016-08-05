@@ -31,7 +31,7 @@ namespace TA_Dashboard.TestCases
                     break;
 
                 default:
-                    mainPage.Logout();
+                    //mainPage.Logout();
                     break;
             }
         }

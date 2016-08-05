@@ -15,14 +15,21 @@ namespace TA_Dashboard.TestCases
         {
             NavigateTADashboard();
             LoginPage loginPage = new LoginPage();
-            loginPage.Login(TestData.defaulRepository, "dieu.nguyen", "123");
+            loginPage.Login(TestData.defaulRepository, "administrator", "");
             MainPage mainPage = new MainPage();
             //mainPage.FindWebElement(By.XPath("//a[.='Dieu']")).Click();
-            mainPage.ClickTab("Dieu");
+
+            mainPage.MouseHover(MainPage._tabGlobalSetting);
+
+
+            mainPage.ClickTab("Add Page");
+            NewPage newpage = new NewPage();
+            
+
+            ////Thread.Sleep(1000);
+            //mainPage.MouseHoverGlobalSetting();
             //Thread.Sleep(1000);
-            mainPage.MouseHoverGlobalSetting();
-            Thread.Sleep(1000);
-            mainPage.ClickButtonChosePanels();
+            //mainPage.ClickButtonChosePanels();
         }
     }
 }

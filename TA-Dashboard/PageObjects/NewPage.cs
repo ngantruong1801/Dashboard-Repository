@@ -9,5 +9,12 @@ namespace TA_Dashboard.PageObjects
 {
     public class NewPage:GeneralPage
     {
+        public static readonly By _txtpageName = By.Id("name");
+
+
+        public void AddPage(string pageName, string parentPage, string number, string displayAfter, string status)
+        {
+            FindWebElement(_txtpageName).SendKeys(pageName);
+        }
     }
 }
