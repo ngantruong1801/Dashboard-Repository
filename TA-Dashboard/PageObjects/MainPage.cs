@@ -9,6 +9,15 @@ namespace TA_Dashboard.PageObjects
 {
     public class MainPage:GeneralPage
     {
+        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
+        public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+
+        public string GetWelcomeText()
+        {
+            return GetTextControl(_tabUser);
+        }
+
         static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
         static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
