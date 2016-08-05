@@ -22,7 +22,7 @@ namespace TA_Dashboard.TestCases
 
             switch (TestContext.TestName)
             {
-                case "":
+                case "DA_LOGIN_TC002_Verify_that_user_fails_to_login_specific_repository_successfully_via_Dashboard_login_page_with_incorrect_credentials":
                     break;
 
                 default:
