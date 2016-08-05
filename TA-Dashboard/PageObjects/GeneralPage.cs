@@ -95,7 +95,7 @@ namespace TA_Dashboard.PageObjects
             action.MoveToElement(FindWebElement(locator)).Perform();
         }
 
-        public static void WaitForElementLoad(By locator, int timeoutInSeconds)
+        public void WaitForElementLoad(By locator, int timeoutInSeconds)
         {
             if (timeoutInSeconds > 0)
             {
