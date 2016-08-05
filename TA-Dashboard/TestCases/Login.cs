@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TA_Dashboard.Common;
+using TA_Dashboard.PageObjects;
 
 namespace TA_Dashboard.TestCases
 {
@@ -11,6 +13,8 @@ namespace TA_Dashboard.TestCases
         {
             //1. Navigate to Dashboard login page
             NavigateTADashboard();
+            LoginPage loginPage = new LoginPage();
+            loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
         }
     }
 }

@@ -17,9 +17,9 @@ namespace TA_Dashboard.PageObjects
         static readonly By _btnLogin = By.ClassName("btn-login");
         #endregion
 
-        public void Login(string responsitory, string username, string password)
+        public void Login(string reponsitory, string username, string password)
         {
-            SelectItemByValue(_cboRepository, responsitory);
+            SelectItemByValue(_cboRepository, reponsitory);
             EnterValue(_txtUsername, username);
             EnterValue(_txtPassword, password);
             Click(_btnLogin);
