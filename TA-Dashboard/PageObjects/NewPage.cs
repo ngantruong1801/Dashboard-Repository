@@ -23,9 +23,9 @@ namespace TA_Dashboard.PageObjects
         public void AddPage(string pageName, string parentPage, string numberOfColumns, string displayAfter, string status)
         {
             EnterValue(_txtPageName, pageName);
-            FindWebElement(_cboParentPage).SendKeys(pageName);
-            FindWebElement(_cboNumberOfColumns).SendKeys(numberOfColumns);
-            FindWebElement(_cboDisplayAfter).SendKeys(displayAfter);
+            SelectValue(_cboParentPage, parentPage);
+            SelectValue(_cboNumberOfColumns, numberOfColumns);
+            SelectValue(_cboDisplayAfter, displayAfter);
             if (status == "public")
             {
                 FindWebElement(_chkPublic).Click();

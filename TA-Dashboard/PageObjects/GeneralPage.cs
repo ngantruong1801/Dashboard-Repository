@@ -44,6 +44,10 @@ namespace TA_Dashboard.PageObjects
             FindWebElement(locator).Clear();
             FindWebElement(locator).SendKeys(value);
         }
+        public void SelectValue(By locator, string value)
+        {
+            FindWebElement(locator).SendKeys(value);
+        }
         public string GetTextControl(By locator)
         {
             return Constant.driver.FindElement(locator).Text;
