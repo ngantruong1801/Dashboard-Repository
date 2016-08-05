@@ -9,7 +9,7 @@ namespace TA_Dashboard
         [TestMethod]
         public void TestMethod1()
         {
-            Console.WriteLine("testdieu");
+            Console.WriteLine("testdieu1");
         }
     }
 }
