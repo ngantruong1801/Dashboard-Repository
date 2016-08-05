@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace TA_Dashboard.PageObjects
 {
-    class AddNewPanel
+    class EditPagePage
     {
-
     }
 }
