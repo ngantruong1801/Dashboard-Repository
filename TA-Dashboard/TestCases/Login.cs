@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TA_Dashboard.Common;
 using TA_Dashboard.PageObjects;
 
+
 namespace TA_Dashboard.TestCases
 {
     [TestClass]
@@ -15,7 +16,10 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             LoginPage loginPage = new LoginPage();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
-            // logout
+            MainPage mainPage = new MainPage();
+            string actualText = mainPage.GetWelcomeText();
+            Console.WriteLine(actualText);
+            CheckTextDisplays(TestData.validUsername, actualText);
         }
     }
 }

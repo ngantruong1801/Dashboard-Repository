@@ -36,7 +36,7 @@ namespace TA_Dashboard.PageObjects
         {
             return Constant.driver.SwitchTo().Alert().Text;
         }
-        public void SelectItemByValue(By locator,string value)
+        public void SelectItemByValue(By locator, string value)
         {
             SelectElement selectcontrol = new SelectElement(FindWebElement(locator));
             selectcontrol.SelectByText(value);
@@ -48,6 +48,28 @@ namespace TA_Dashboard.PageObjects
             selectcontrol.SelectByIndex(index);
         }
 
-        
+        public static bool IsElementPresent(By locator)
+        {
+            try
+            {
+                Constant.driver.FindElement(locator);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+
+        public void Logout()
+        {
+            if (IsElementPresent(MainPage._tabUser) == true)
+            {
+                Click(MainPage._tabUser);
+                Click(MainPage._tabLogout);
+            }
+
+        }
+
     }
 }

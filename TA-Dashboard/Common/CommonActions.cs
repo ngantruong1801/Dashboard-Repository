@@ -58,5 +58,7 @@ namespace TA_Dashboard.Common
         {
             Constant.driver.Navigate().GoToUrl(TestData.dashBoardURL);
         }
+
+       
     }
 }
