@@ -20,7 +20,8 @@ namespace TA_Dashboard.PageObjects
 
         public void Login(string reponsitory, string username, string password)
         {
-            SelectItemByValue(_cboRepository, reponsitory);
+            //SelectItemByValue(_cboRepository, reponsitory);
+            FindWebElement(_cboRepository).SendKeys(reponsitory);
             EnterValue(_txtUsername, username);
             EnterValue(_txtPassword, password);
             Click(_btnLogin);
