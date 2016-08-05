@@ -28,9 +28,8 @@ namespace TA_Dashboard.PageObjects
             EnterValue(_txtUsername, username);
             EnterValue(_txtPassword, password);
             Click(_btnLogin);
-            // wait for main page is loaded
-            //Thread.Sleep(1000);
-            WaitForElementLoad(MainPage._tabUser, 20);
+            //
+            Thread.Sleep(1000);
         }
     }
 }
