@@ -24,14 +24,17 @@ namespace TA_Dashboard.TestCases
         [TestMethod]
         public void DA_LOGIN_TC002_Verify_that_user_fails_to_login_specific_repository_successfully_via_Dashboard_login_page_with_incorrect_credentials()
         {
+            NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.invalidUsername, TestData.invalidPassword);
             string actualMessage = loginPage.GetTextPopup();
+            Console.WriteLine(actualMessage);
             CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
         }
 
         [TestMethod]
         public void DA_LOGIN_TC003_Verify_that_user_fails_with_correct_username_and_incorrect_password()
         {
+            NavigateTADashboard(); 
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.invalidPassword);
             string actualMessage = loginPage.GetTextPopup();
             CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
