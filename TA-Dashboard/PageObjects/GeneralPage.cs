@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 
 namespace TA_Dashboard.PageObjects
 {
@@ -51,6 +52,11 @@ namespace TA_Dashboard.PageObjects
         {
             Click(MainPage._tabUser);
             Click(MainPage._tabLogout);
+        }
+        public void MouseHover(By locator)
+        {         
+            Actions action = new Actions(Constant.driver);
+            action.MoveToElement(FindWebElement(locator)).Perform();
         }
         
     }
