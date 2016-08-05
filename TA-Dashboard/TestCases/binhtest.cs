@@ -36,9 +36,9 @@ namespace TA_Dashboard.TestCases
             ////Thread.Sleep(1000);
             //mainPage.MouseHoverGlobalSetting();
             //Thread.Sleep(1000);
-            mainPage.MouseHoverGlobalSetting();
-            Thread.Sleep(1000);
-            mainPage.ClickButtonChosePanels();
+            //mainPage.MouseHoverGlobalSetting();
+            //Thread.Sleep(1000);
+            //mainPage.ClickButtonChosePanels();
         }
     }
 }
