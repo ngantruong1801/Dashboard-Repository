@@ -7,7 +7,7 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Edge;
 using System.Diagnostics;
 
-namespace TA_Dashboard.PageObjects
+namespace TA_Dashboard.Common
 {
     public class CommonActions
     {
