@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TA_Dashboard.Common;
+using TA_Dashboard.PageObjects;
 
 namespace TA_Dashboard.TestCases
 {
@@ -11,6 +12,7 @@ namespace TA_Dashboard.TestCases
         {
             CommonActions.OpenBrowser("chrome");
         }
+
 
         [AssemblyCleanup]
         public static void AssemblyCleapUpMethod()

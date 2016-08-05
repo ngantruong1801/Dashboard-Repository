@@ -15,6 +15,7 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             LoginPage loginPage = new LoginPage();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
+            // logout
         }
     }
 }
