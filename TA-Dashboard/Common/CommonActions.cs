@@ -45,7 +45,7 @@ namespace TA_Dashboard.Common
 
         public static void CloseBrowser()
         {
-            Constant.driver.Manage().Cookies.DeleteAllCookies();
+            //Constant.driver.Manage().Cookies.DeleteAllCookies();
             Constant.driver.Quit();
             foreach (Process process in Process.GetProcessesByName("iexplore"))
             {
