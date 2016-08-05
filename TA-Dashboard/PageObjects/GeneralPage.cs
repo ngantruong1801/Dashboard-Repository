@@ -49,7 +49,8 @@ namespace TA_Dashboard.PageObjects
         }
          public void Logout()
         {
-
+            Click(MainPage._tabUser);
+            Click(MainPage._tabLogout);
         }
         
     }
