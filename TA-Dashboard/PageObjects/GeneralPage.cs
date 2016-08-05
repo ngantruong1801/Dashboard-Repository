@@ -66,21 +66,19 @@ namespace TA_Dashboard.PageObjects
         {
             if (IsElementPresent(MainPage._tabUser) == true)
             {
-                Click(MainPage._tabUser);
+                MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
             }
 
         }
-
-    }
-            Click(MainPage._tabUser);
-            Click(MainPage._tabLogout);
-        }
         public void MouseHover(By locator)
-        {         
+        {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
         }
-        
+
     }
 }
+
+
+
