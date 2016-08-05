@@ -16,13 +16,12 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             LoginPage loginPage = new LoginPage();
             loginPage.Login(TestData.defaulRepository, "dieu.nguyen", "123");
-            MainPage mainPage = new MainPage();
-            //mainPage.FindWebElement(By.XPath("//a[.='Dieu']")).Click();
-            mainPage.ClickTab("Dieu");
-            //Thread.Sleep(1000);
-            mainPage.MouseHoverGlobalSetting();
+            GeneralPage generalPage = new GeneralPage();
+            generalPage.MouseHover(GeneralPage._tabGlobalSetting);
+            generalPage.ClickTab("Add Page");
+            NewPage newPage = new NewPage();
             Thread.Sleep(1000);
-            mainPage.ClickButtonChosePanels();
+            newPage.AddPage("Dieu1", "", "", "", "public");
         }
     }
 }
