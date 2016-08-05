@@ -56,12 +56,15 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
     <Compile Include="Common\Constant.cs" />
+    <Compile Include="Common\TestData.cs" />
     <Compile Include="PageObjects\AddNewPanel.cs" />
     <Compile Include="Common\CommonActions.cs" />
     <Compile Include="PageObjects\DataProfiles.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="PageObjects\NewPage.cs" />
     <Compile Include="PageObjects\PanelConfiguration.cs" />
     <Compile Include="PageObjects\Panels.cs" />
+    <Compile Include="TestCases\Login.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -119,9 +123,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestCases\" />
-  </ItemGroup>
+  <ItemGroup />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
