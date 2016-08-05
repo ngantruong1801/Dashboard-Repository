@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
+
 
 namespace TA_Dashboard.PageObjects
 {
-    class Login
+    public class Login:General
     {
+        #region Locators
+        static readonly By _cboRepository = By.Id("repository");
+        static readonly By _txtUsername = By.Id("username");
+        static readonly By _txtPassword = By.Id("password");
+        static readonly By _btnLogin = By.ClassName("btn-login");
+        #endregion
     }
 }
