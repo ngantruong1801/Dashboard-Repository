@@ -9,7 +9,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
         {
-            CommonActions.OpenBrowser("edge");
+            CommonActions.OpenBrowser(TestData.browser);
         }
 
         [AssemblyCleanup]

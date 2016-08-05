@@ -1,12 +1,11 @@
-﻿using OpenQA.Selenium;
-using TA_Dashboard.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Edge;
 using System.Diagnostics;
-
+using System.IO;
+using System;
 namespace TA_Dashboard.Common
 {
     public class CommonActions
@@ -58,5 +57,17 @@ namespace TA_Dashboard.Common
         {
             Constant.driver.Navigate().GoToUrl(TestData.dashBoardURL);
         }
+
+        public static string ReadData()
+        {
+            string line = string.Empty;
+            StreamReader sr = new StreamReader("E:\\C#\\Selenium advanced\\Selenium Advanced\\TA-Dashboard\\data.txt");
+            line = sr.ReadLine();
+            Console.WriteLine(line);
+            return line;
+            
+        }
+
+        
     }
 }
