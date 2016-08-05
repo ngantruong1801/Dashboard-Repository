@@ -15,7 +15,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
         {
-            CommonActions.OpenBrowser("firefox");
+            CommonActions.OpenBrowser("IE");
         }
 
         [TestCleanup]
@@ -39,7 +39,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyCleanup]
         public static void AssemblyCleapUpMethod()
         {
-          // CommonActions.CloseBrowser();
+            CommonActions.CloseBrowser();
         }
     }
 }
