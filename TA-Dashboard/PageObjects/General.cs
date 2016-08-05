@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 
 namespace TA_Dashboard.PageObjects
 {
-    public class General
+    public class General:CommonActions
     {
         public IWebElement FindWebElement(By locator)
         {
