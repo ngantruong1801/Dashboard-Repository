@@ -61,6 +61,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Common\Constant.cs" />
+    <Compile Include="PageObjects\AddNewPanel.cs" />
+    <Compile Include="Common\CommonActions.cs" />
+    <Compile Include="PageObjects\DataProfiles.cs" />
+    <Compile Include="PageObjects\EditPage.cs" />
+    <Compile Include="PageObjects\EditPanel.cs" />
+    <Compile Include="PageObjects\General.cs" />
+    <Compile Include="PageObjects\GeneralSettings.cs" />
+    <Compile Include="PageObjects\Login.cs" />
+    <Compile Include="PageObjects\Main.cs" />
+    <Compile Include="PageObjects\NewPage.cs" />
+    <Compile Include="PageObjects\PanelConfiguration.cs" />
+    <Compile Include="PageObjects\Panels.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,8 +120,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="PageObjects\" />
     <Folder Include="TestCases\" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
