@@ -53,5 +53,10 @@ namespace TA_Dashboard.Common
             }
 
         }
+
+        public static void NavigateTADashboard()
+        {
+            Constant.driver.Navigate().GoToUrl(TestData.dashBoardURL);
+        }
     }
 }
