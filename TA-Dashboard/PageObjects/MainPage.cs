@@ -11,6 +11,7 @@ namespace TA_Dashboard.PageObjects
     {
         static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
         static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
+        static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
 
     }
 }

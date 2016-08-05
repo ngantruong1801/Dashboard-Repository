@@ -47,7 +47,10 @@ namespace TA_Dashboard.PageObjects
             SelectElement selectcontrol = new SelectElement(FindWebElement(locator));
             selectcontrol.SelectByIndex(index);
         }
+         public void Logout()
+        {
 
+        }
         
     }
 }
