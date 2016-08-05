@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using TA_Dashboard.Common;
-
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TA_Dashboard.PageObjects
 {
@@ -36,6 +36,10 @@ namespace TA_Dashboard.PageObjects
         public string GetTextPopup()
         {
             return Constant.driver.SwitchTo().Alert().Text;
+        }
+        public static void CheckTextDisplays(string expectedText, string actualText)
+        {
+            Assert.AreEqual(expectedText, actualText);
         }
     }
 }
