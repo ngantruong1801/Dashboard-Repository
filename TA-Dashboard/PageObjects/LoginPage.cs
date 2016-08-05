@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using System.Threading;
+using OpenQA.Selenium.Support.UI;
+using TA_Dashboard.Common;
 
 
 namespace TA_Dashboard.PageObjects
@@ -26,7 +28,8 @@ namespace TA_Dashboard.PageObjects
             EnterValue(_txtPassword, password);
             Click(_btnLogin);
             // wait for main page is loaded
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
+            WaitForElementLoad(MainPage._tabUser, 20);
         }
     }
 }

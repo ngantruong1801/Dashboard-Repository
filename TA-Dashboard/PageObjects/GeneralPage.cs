@@ -77,6 +77,14 @@ namespace TA_Dashboard.PageObjects
             action.MoveToElement(FindWebElement(locator)).Perform();
         }
 
+        public static void WaitForElementLoad(By locator, int timeoutInSeconds)
+        {
+            if (timeoutInSeconds > 0)
+            {
+                WebDriverWait wait = new WebDriverWait(Constant.driver, TimeSpan.FromSeconds(timeoutInSeconds));
+                wait.Until(ExpectedConditions.ElementIsVisible(locator));
+            }
+        }
     }
 }
 
