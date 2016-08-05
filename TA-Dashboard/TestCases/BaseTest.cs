@@ -9,13 +9,13 @@ namespace TA_Dashboard.TestCases
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
         {
-            CommonActions.OpenBrowser("edge");
+            CommonActions.OpenBrowser("chrome");
         }
 
         [AssemblyCleanup]
         public static void AssemblyCleapUpMethod()
         {
-            CommonActions.CloseBrowser();
+           CommonActions.CloseBrowser();
         }
     }
 }
