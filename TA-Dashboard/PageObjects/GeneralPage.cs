@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace TA_Dashboard.PageObjects
 {
-    public class General
+    public class GeneralPage
     {
         public IWebElement FindWebElement(By locator)
         {
@@ -35,6 +36,18 @@ namespace TA_Dashboard.PageObjects
         {
             return Constant.driver.SwitchTo().Alert().Text;
         }
+        public void SelectItemByValue(By locator,string value)
+        {
+            SelectElement selectcontrol = new SelectElement(FindWebElement(locator));
+            selectcontrol.SelectByText(value);
+        }
+
+        public void SelectItemByIndex(By locator, int index)
+        {
+            SelectElement selectcontrol = new SelectElement(FindWebElement(locator));
+            selectcontrol.SelectByIndex(index);
+        }
+
         
     }
 }

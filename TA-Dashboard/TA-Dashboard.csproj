@@ -65,18 +65,18 @@
   <ItemGroup>
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\TestData.cs" />
-    <Compile Include="PageObjects\AddNewPanel.cs" />
+    <Compile Include="PageObjects\AddNewPanelPage.cs" />
     <Compile Include="Common\CommonActions.cs" />
-    <Compile Include="PageObjects\DataProfiles.cs" />
-    <Compile Include="PageObjects\EditPage.cs" />
-    <Compile Include="PageObjects\EditPanel.cs" />
-    <Compile Include="PageObjects\General.cs" />
-    <Compile Include="PageObjects\GeneralSettings.cs" />
-    <Compile Include="PageObjects\Login.cs" />
-    <Compile Include="PageObjects\Main.cs" />
+    <Compile Include="PageObjects\DataProfilesPage.cs" />
+    <Compile Include="PageObjects\EditPagePage.cs" />
+    <Compile Include="PageObjects\EditPanelPage.cs" />
+    <Compile Include="PageObjects\GeneralPage.cs" />
+    <Compile Include="PageObjects\GeneralSettingsPage.cs" />
+    <Compile Include="PageObjects\LoginPage.cs" />
+    <Compile Include="PageObjects\MainPage.cs" />
     <Compile Include="PageObjects\NewPage.cs" />
-    <Compile Include="PageObjects\PanelConfiguration.cs" />
-    <Compile Include="PageObjects\Panels.cs" />
+    <Compile Include="PageObjects\PanelConfigurationPage.cs" />
+    <Compile Include="PageObjects\PanelsPage.cs" />
     <Compile Include="TestCases\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
