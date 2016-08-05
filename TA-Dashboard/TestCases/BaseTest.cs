@@ -1,28 +1,22 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TA_Dashboard.Common;
-using OpenQA.Selenium;
-using TA_Dashboard.PageObjects;
 
 namespace TA_Dashboard.TestCases
 {
     [TestClass]
-    public class BaseTest: CommonActions
+    public class BaseTest : CommonActions
     {
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    [AssemblyInitialize]
-        //public static void AssemblyInitializeMeThod(TestContext testContext)
-        //{
-        //    C.OpenBrowser();
-        //}
+        [AssemblyInitialize]
+        public static void AssemblyInitializeMeThod(TestContext testContext)
+        {
+            CommonActions.OpenBrowser("chrome");
+        }
 
-        //[AssemblyCleanup]
-        //public static void AssemblyCleapUpMethod()
-        //{
-        //    CommonPage.CloseBrowser();
-        //}
+        [AssemblyCleanup]
+        public static void AssemblyCleapUpMethod()
+        {
+            CommonActions.CloseBrowser();
+        }
     }
 }
-}
+
