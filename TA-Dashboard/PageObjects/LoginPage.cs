@@ -7,7 +7,6 @@ using OpenQA.Selenium;
 using System.Threading;
 using TA_Dashboard.Common;
 using OpenQA.Selenium.Support.UI;
-using TA_Dashboard.Common;
 
 
 namespace TA_Dashboard.PageObjects

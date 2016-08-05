@@ -69,7 +69,6 @@ namespace TA_Dashboard.PageObjects
                 MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
             }
-
         }
         public void MouseHover(By locator)
         {
@@ -84,6 +83,14 @@ namespace TA_Dashboard.PageObjects
                 WebDriverWait wait = new WebDriverWait(Constant.driver, TimeSpan.FromSeconds(timeoutInSeconds));
                 wait.Until(ExpectedConditions.ElementIsVisible(locator));
             }
+        }
+        public void ClickTab(string tabName)
+        {
+            FindWebElement(By.XPath("//a[.='"+tabName+"']")).Click();
+        }
+        public void ClickButtonChosePanels()
+        {
+            FindWebElement(MainPage._btnChoosePanels).Click();
         }
     }
 }
