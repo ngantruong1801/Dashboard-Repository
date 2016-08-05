@@ -10,6 +10,8 @@ namespace TA_Dashboard
         public void TestMethod1()
         {
             Console.WriteLine("test3");
+            Console.WriteLine("test1");
+
         }
     }
 }
