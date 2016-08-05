@@ -14,7 +14,7 @@ namespace TA_Dashboard.PageObjects
         static readonly By _cboRepository = By.Id("repository");
         static readonly By _txtUsername = By.Id("username");
         static readonly By _txtPassword = By.Id("password");
-        static readonly By _btnPassword = By.ClassName("btn-login");
+        static readonly By _btnLogin = By.ClassName("btn-login");
         #endregion
     }
 }
