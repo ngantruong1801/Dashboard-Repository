@@ -43,13 +43,14 @@ namespace TA_Dashboard.Common
         }
 
         public static void CloseBrowser()
-        {
+        {   
             Constant.driver.Manage().Cookies.DeleteAllCookies();
             Constant.driver.Quit();
             foreach (Process process in Process.GetProcessesByName("iexplore"))
             {
                 process.Kill();
             }
+            
 
         }
 
@@ -63,9 +64,7 @@ namespace TA_Dashboard.Common
             string line = string.Empty;
             StreamReader sr = new StreamReader("E:\\C#\\Selenium advanced\\Selenium Advanced\\TA-Dashboard\\data.txt");
             line = sr.ReadLine();
-            Console.WriteLine(line);
             return line;
-            
         }
 
         
