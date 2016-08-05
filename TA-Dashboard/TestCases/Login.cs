@@ -16,7 +16,6 @@ namespace TA_Dashboard.TestCases
             //1. Navigate to Dashboard login page
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
-            
             MainPage mainPage = new MainPage();
             string actualText = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.validUsername, actualText);
