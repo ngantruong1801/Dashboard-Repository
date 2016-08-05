@@ -12,5 +12,10 @@ namespace TA_Dashboard.PageObjects
         static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
         static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
 
+        public string GetWelcomeText()
+        {
+            return GetTextControl(_tabUser);
+        }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using System.Threading;
 
 
 namespace TA_Dashboard.PageObjects
@@ -23,6 +24,8 @@ namespace TA_Dashboard.PageObjects
             EnterValue(_txtUsername, username);
             EnterValue(_txtPassword, password);
             Click(_btnLogin);
+            // wait for main page is loaded
+            Thread.Sleep(1000);
         }
     }
 }
