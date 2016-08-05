@@ -28,12 +28,12 @@ namespace TA_Dashboard.PageObjects
             EnterValue(_txtPassword, password);
             Click(_btnLogin);
             // wait for main page is loaded
-            //Thread.Sleep(1000);
-            if (IsElementPresent(MainPage._tabUser)==true)
-            {
-                WaitForElementLoad(MainPage._tabUser, 20);
-            }
-           
+            Thread.Sleep(1000);
+            //if (IsElementPresent(MainPage._tabUser)==true)
+            //{
+            //    WaitForElementLoad(MainPage._tabUser, 20);
+            //}
+
         }
     }
 }
