@@ -29,7 +29,11 @@ namespace TA_Dashboard.PageObjects
             Click(_btnLogin);
             // wait for main page is loaded
             //Thread.Sleep(1000);
-            WaitForElementLoad(MainPage._tabUser, 20);
+            if (IsElementPresent(MainPage._tabUser)==true)
+            {
+                WaitForElementLoad(MainPage._tabUser, 20);
+            }
+           
         }
     }
 }

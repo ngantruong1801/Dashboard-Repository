@@ -18,7 +18,6 @@ namespace TA_Dashboard.TestCases
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
             MainPage mainPage = new MainPage();
             string actualText = mainPage.GetWelcomeText();
-            Console.WriteLine(actualText);
             CheckTextDisplays(TestData.validUsername, actualText);
         }
 
