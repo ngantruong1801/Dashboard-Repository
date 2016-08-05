@@ -75,6 +75,15 @@ namespace TA_Dashboard.PageObjects
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
         }
+
+        public static void WaitForElementLoad(By locator, int timeoutInSeconds)
+        {
+            if (timeoutInSeconds > 0)
+            {
+                WebDriverWait wait = new WebDriverWait(Constant.driver, TimeSpan.FromSeconds(timeoutInSeconds));
+                wait.Until(ExpectedConditions.ElementIsVisible(locator));
+            }
+        }
         public void ClickTab(string tabName)
         {
             FindWebElement(By.XPath("//a[.='"+tabName+"']")).Click();

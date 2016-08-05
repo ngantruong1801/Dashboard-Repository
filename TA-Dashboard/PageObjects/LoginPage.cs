@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using System.Threading;
+using TA_Dashboard.Common;
+using OpenQA.Selenium.Support.UI;
 
 
 namespace TA_Dashboard.PageObjects
@@ -20,12 +22,14 @@ namespace TA_Dashboard.PageObjects
 
         public void Login(string reponsitory, string username, string password)
         {
-            SelectItemByValue(_cboRepository, reponsitory);
+            //SelectItemByValue(_cboRepository, reponsitory);
+            FindWebElement(_cboRepository).SendKeys(reponsitory);
             EnterValue(_txtUsername, username);
             EnterValue(_txtPassword, password);
             Click(_btnLogin);
             // wait for main page is loaded
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
+            WaitForElementLoad(MainPage._tabUser, 20);
         }
     }
 }
