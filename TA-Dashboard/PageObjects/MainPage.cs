@@ -9,7 +9,7 @@ namespace TA_Dashboard.PageObjects
 {
     public class MainPage:GeneralPage
     {
-        static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
         static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         static readonly By _tabGlobalSetting = By.ClassName("mn-setting");
