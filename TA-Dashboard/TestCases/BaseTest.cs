@@ -8,7 +8,8 @@ namespace TA_Dashboard.TestCases
     public class BaseTest : CommonActions
     {
         public TestContext TestContext { get; set; }
-        MainPage mainpage = new MainPage();
+        MainPage mainPage = new MainPage();
+        LoginPage loginPage = new LoginPage();
 
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
@@ -23,10 +24,11 @@ namespace TA_Dashboard.TestCases
             switch (TestContext.TestName)
             {
                 case "DA_LOGIN_TC002_Verify_that_user_fails_to_login_specific_repository_successfully_via_Dashboard_login_page_with_incorrect_credentials":
+                    loginPage.ConfirmPopup();
                     break;
 
                 default:
-                    mainpage.Logout();
+                    mainPage.Logout();
                     break;
             }
         }

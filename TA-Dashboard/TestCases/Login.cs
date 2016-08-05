@@ -29,5 +29,13 @@ namespace TA_Dashboard.TestCases
             string actualMessage = loginPage.GetTextPopup();
             CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
         }
+
+        [TestMethod]
+        public void DA_LOGIN_TC003_Verify_that_user_fails_with_correct_username_and_incorrect_password()
+        {
+            loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.invalidPassword);
+            string actualMessage = loginPage.GetTextPopup();
+            CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
+        }
     }
 }
