@@ -8,7 +8,9 @@ namespace TA_Dashboard.Common
 {
     class TestData
     {
-        public static string ValidUsername = "canh.tran";
-        public static string ValidPassword = "123";
+        public static string validUsername = "administrator";
+        public static string validPassword = "";
+        public static string dashBoardURL = "http://192.168.189.231:54001/TADashboard/";
+
     }
 }
