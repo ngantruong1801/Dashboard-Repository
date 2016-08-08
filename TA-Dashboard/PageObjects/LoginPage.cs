@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using System.Threading;
-using TA_Dashboard.Common;
-using OpenQA.Selenium.Support.UI;
-
+﻿using OpenQA.Selenium;
 
 namespace TA_Dashboard.PageObjects
 {
@@ -20,14 +11,16 @@ namespace TA_Dashboard.PageObjects
         static readonly By _btnLogin = By.ClassName("btn-login");
         #endregion
 
+        #region Methods
         public void Login(string reponsitory, string username, string password)
         {
             WaitForElementLoad(_cboRepository, 3);
             FindWebElement(_cboRepository).SendKeys(reponsitory);
             EnterValue(_txtUsername, username);
             EnterValue(_txtPassword, password);
-            Click(_btnLogin);
-            
+            Click(_btnLogin);          
         }
+
+        #endregion
     }
 }

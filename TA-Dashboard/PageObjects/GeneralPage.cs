@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
-using System.Threading;
-
 
 namespace TA_Dashboard.PageObjects
 {
@@ -26,41 +20,47 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
         public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
-       
         #endregion
 
-
+        #region Methods
         public IWebElement FindWebElement(By locator)
         {
             return Constant.driver.FindElement(locator);
         }
+
         public void Click(By locator)
         {
             FindWebElement(locator).Click();
         }
+
         public void EnterValue(By locator, string value)
         {
             FindWebElement(locator).Clear();
             FindWebElement(locator).SendKeys(value);
         }
+
         public void SelectValue(By locator, string value)
         {
             FindWebElement(locator).SendKeys(value);
         }
+
         public string GetTextControl(By locator)
         {
             WaitForElementLoad(locator, 3);
             return Constant.driver.FindElement(locator).Text;
         }
+
         public void ConfirmPopup()
         {
             Constant.driver.SwitchTo().Alert().Accept();
             Thread.Sleep(1000);
         }
+
         public string GetTextPopup()
         {
             return Constant.driver.SwitchTo().Alert().Text;
         }
+
         public void SelectItemByValue(By locator, string value)
         {
             SelectElement selectcontrol = new SelectElement(FindWebElement(locator));
@@ -91,9 +91,8 @@ namespace TA_Dashboard.PageObjects
             WaitForElementLoad(MainPage._tabUser, 3);
             MouseHover(MainPage._tabUser);
             Click(MainPage._tabLogout);
-            Thread.Sleep(1000);
-            //WaitForElementLoad(LoginPage._cboRepository, 3);
         }
+
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
@@ -109,10 +108,12 @@ namespace TA_Dashboard.PageObjects
                 wait.Until(ExpectedConditions.ElementIsVisible(locator));
             }
         }
+
         public void ClickTab(string tabName)
         {
             FindWebElement(By.XPath("//a[.='" + tabName + "']")).Click();
         }
+
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
@@ -133,7 +134,7 @@ namespace TA_Dashboard.PageObjects
             alert.Accept();
         }
 
-        
+        #endregion
     }
 }
 

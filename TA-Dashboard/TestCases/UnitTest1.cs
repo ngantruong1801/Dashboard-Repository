@@ -13,14 +13,6 @@ namespace TA_Dashboard.TestCases
     ////    [TestMethod]
     ////    public void TestMethod1()
     ////    {
-    ////        //NavigateTADashboard();
-    ////        //LoginPage loginPage = new LoginPage();
-    ////        //loginPage.Login(TestData.defaulRepository, "dieu.nguyen", "123");
-    ////        //GeneralPage generalPage = new GeneralPage();
-    ////        //generalPage.MouseHover(GeneralPage._tabGlobalSetting);
-    ////        //generalPage.ClickTab("Add Page");
-    ////        //NewPage newPage = new NewPage();
-    ////        //Thread.Sleep(1000);
     ////    }
     ////}
 }
