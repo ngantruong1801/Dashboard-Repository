@@ -9,7 +9,7 @@ namespace TA_Dashboard.TestCases
     [TestClass]
     public class MainPages:BaseTest
     {
-        LoginPage loginPage = new LoginPage();
+        //LoginPage loginPage = new LoginPage();
         [TestMethod]
         public void DA_MP_TC012()
         {

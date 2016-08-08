@@ -83,15 +83,6 @@ namespace TA_Dashboard.TestCases
         }
 
         [TestMethod]
-        public void DA_LOGIN_TC010_Verify_that_the_page_works_correctly_for_the_case_when_no_input_entered_to_Password_and_Username_field()
-        {
-            NavigateTADashboard();
-            loginPage.Login(TestData.defaulRepository, TestData.blankUsername, TestData.blankPassword);
-            string actualMessage = loginPage.GetTextPopup();
-            CheckTextDisplays(TestData.errorBlankUsernameLoginMessage, actualMessage);
-        }
-
-        [TestMethod]
         public void DA_LOGIN_TC004_Verify_that_user_is_able_to_log_in_different_repositories_successfully_after_logging_out_current_repository()
         {
             NavigateTADashboard();
@@ -102,5 +93,16 @@ namespace TA_Dashboard.TestCases
             string actualText = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.validUsername, actualText);
         }
+
+        [TestMethod]
+        public void DA_LOGIN_TC010_Verify_that_the_page_works_correctly_for_the_case_when_no_input_entered_to_Password_and_Username_field()
+        {
+            NavigateTADashboard();
+            loginPage.Login(TestData.defaulRepository, TestData.blankUsername, TestData.blankPassword);
+            string actualMessage = loginPage.GetTextPopup();
+            CheckTextDisplays(TestData.errorBlankUsernameLoginMessage, actualMessage);
+        }
+
+       
     }
 }

@@ -6,6 +6,7 @@ using OpenQA.Selenium.Interactions;
 using System.Threading;
 
 
+
 namespace TA_Dashboard.PageObjects
 {
     public class GeneralPage
@@ -28,7 +29,6 @@ namespace TA_Dashboard.PageObjects
 
         public string GetWelcomeText()
         {
-            
             return GetTextControl(_tabUser);
         }
 
@@ -57,6 +57,7 @@ namespace TA_Dashboard.PageObjects
         public void ConfirmPopup()
         {
             Constant.driver.SwitchTo().Alert().Accept();
+            Thread.Sleep(1000);
         }
         public string GetTextPopup()
         {
@@ -91,6 +92,7 @@ namespace TA_Dashboard.PageObjects
         {
                 MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
+               Thread.Sleep(1000);
         }
         public void MouseHover(By locator)
         {
