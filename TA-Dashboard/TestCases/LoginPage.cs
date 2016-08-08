@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TA_Dashboard.Common;
 using TA_Dashboard.PageObjects;
-using System.Threading;
 
 
 namespace TA_Dashboard.TestCases

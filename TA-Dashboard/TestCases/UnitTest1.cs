@@ -21,7 +21,6 @@ namespace TA_Dashboard.TestCases
     ////        //generalPage.ClickTab("Add Page");
     ////        //NewPage newPage = new NewPage();
     ////        //Thread.Sleep(1000);
-    ////        //newPage.AddPage("Dieu2", "Dieu1", "3", "", "public");
     ////    }
     ////}
 }
