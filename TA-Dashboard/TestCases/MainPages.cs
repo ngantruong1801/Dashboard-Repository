@@ -13,15 +13,15 @@ namespace TA_Dashboard.TestCases
         [TestMethod]
         public void DA_MP_TC012()
         {
-            NavigateTADashboard();
-            loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
+            //NavigateTADashboard();
+            //loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
 
-            MainPage mainPage = new MainPage();
-            mainPage.OpenAddPageDialog();
+            //MainPage mainPage = new MainPage();
+            //mainPage.OpenAddPageDialog();
 
-            NewPage newPage=new NewPage();
+            //NewPage newPage=new NewPage();
             
-            newPage.AddPage("test123","","","","");
+            //newPage.AddPage("test123","","","","");
 
         }
     }

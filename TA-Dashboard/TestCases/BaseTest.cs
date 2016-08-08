@@ -15,7 +15,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
         {
-            CommonActions.OpenBrowser("chrome");
+            CommonActions.OpenBrowser("edge");
         }
 
         [TestCleanup]
@@ -33,6 +33,7 @@ namespace TA_Dashboard.TestCases
                     break;
                 default:
                     mainPage.Logout();
+                    Thread.Sleep(1000);
                     break;
             }
         }

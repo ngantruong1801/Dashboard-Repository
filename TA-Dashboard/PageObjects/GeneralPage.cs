@@ -28,6 +28,7 @@ namespace TA_Dashboard.PageObjects
 
         public string GetWelcomeText()
         {
+            
             return GetTextControl(_tabUser);
         }
 
@@ -50,6 +51,7 @@ namespace TA_Dashboard.PageObjects
         }
         public string GetTextControl(By locator)
         {
+            //WaitForElementLoad(locator, 2);
             return Constant.driver.FindElement(locator).Text;
         }
         public void ConfirmPopup()
@@ -87,22 +89,16 @@ namespace TA_Dashboard.PageObjects
 
         public void Logout()
         {  
-          
-            if (IsElementPresent(MainPage._tabUser) == true)
-            {
                 MouseHover(MainPage._tabUser);
-                //move();
                 Click(MainPage._tabLogout);
-            }
+                Thread.Sleep(1000);
+
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
-            Thread.Sleep(2000);
-            
-            action.MoveToElement(FindWebElement(locator)).Build().Perform();
-            action.MoveByOffset(10,0);
+            Thread.Sleep(1000);
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
