@@ -90,8 +90,8 @@ namespace TA_Dashboard.PageObjects
           
             if (IsElementPresent(MainPage._tabUser) == true)
             {
-                //MouseHover(MainPage._tabUser);
-                move();
+                MouseHover(MainPage._tabUser);
+                //move();
                 Click(MainPage._tabLogout);
             }
         }
@@ -121,6 +121,8 @@ namespace TA_Dashboard.PageObjects
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
         }  
+
+        
     }
 }
 
