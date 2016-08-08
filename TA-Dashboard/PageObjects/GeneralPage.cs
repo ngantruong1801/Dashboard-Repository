@@ -26,7 +26,7 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
         public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
-        public static readonly By _popupLoginRepository = By.XPath("//h2[text()='Login Repository']");
+       
         #endregion
 
 
@@ -49,7 +49,7 @@ namespace TA_Dashboard.PageObjects
         }
         public string GetTextControl(By locator)
         {
-            //WaitForElementLoad(locator, 2);
+            WaitForElementLoad(locator, 3);
             return Constant.driver.FindElement(locator).Text;
         }
         public void ConfirmPopup()
@@ -73,12 +73,12 @@ namespace TA_Dashboard.PageObjects
             selectcontrol.SelectByIndex(index);
         }
 
-        public static bool IsElementPresent(By locator)
+        public bool IsElementPresent(By locator)
         {
             try
             {
-                Constant.driver.FindElement(locator);
-                return true;
+                return FindWebElement(locator).Displayed;
+                
             }
             catch (NoSuchElementException)
             {
@@ -88,9 +88,11 @@ namespace TA_Dashboard.PageObjects
 
         public void Logout()
         {
+            WaitForElementLoad(MainPage._tabUser, 3);
             MouseHover(MainPage._tabUser);
             Click(MainPage._tabLogout);
             Thread.Sleep(1000);
+            //WaitForElementLoad(LoginPage._cboRepository, 3);
         }
         public void MouseHover(By locator)
         {
@@ -131,18 +133,7 @@ namespace TA_Dashboard.PageObjects
             alert.Accept();
         }
 
-        public bool IsLoginRepositoryDisplay()
-        {
-            try
-            {
-                return FindWebElement(_popupLoginRepository).Displayed;
-            }
-            catch
-            {
-                return false;
-            }
-
-        }
+        
     }
 }
 

@@ -47,7 +47,7 @@ namespace TA_Dashboard.TestCases
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
             MainPage mainPage = new MainPage();
             mainPage.Logout();
-            loginPage.Login(TestData.testReponsitory, TestData.validUsername, TestData.validPassword);
+            loginPage.Login(TestData.testRepository, TestData.validUsername, TestData.validPassword);
             string actualText = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.validUsername, actualText);
         }
@@ -58,11 +58,10 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
             MainPage mainPage = new MainPage();
-            mainPage.ChooseRepository(TestData.testReponsitory);
+            mainPage.ChooseRepository(TestData.testRepository);
             Assert.IsFalse(mainPage.IsLoginRepositoryDisplay());
-            //Thread.Sleep(2000);
             string actualRepository = mainPage.GetRepository();
-            CheckTextDisplays(actualRepository, TestData.testReponsitory);
+            CheckTextDisplays(actualRepository, TestData.testRepository);
         }
 
         [TestMethod]
@@ -120,8 +119,6 @@ namespace TA_Dashboard.TestCases
             loginPage.Login(TestData.defaulRepository, TestData.blankUsername, TestData.blankPassword);
             string actualMessage = loginPage.GetTextPopup();
             CheckTextDisplays(TestData.errorBlankUsernameLoginMessage, actualMessage);
-        }
-
-       
+        }     
     }
 }

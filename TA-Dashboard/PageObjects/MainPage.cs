@@ -26,6 +26,7 @@ namespace TA_Dashboard.PageObjects
 
         public void ChooseRepository(string repository)
         {
+            WaitForElementLoad(_tabRepository,3);
             MouseHover(_tabRepository);
             ClickTab(repository);
         }
@@ -37,20 +38,13 @@ namespace TA_Dashboard.PageObjects
 
         public string GetRepository()
         {
+            WaitForElementLoad(_lblRepository,3);
             return GetTextControl(_lblRepository);
         }
+        public bool IsLoginRepositoryDisplay()
+        {
+            return IsElementPresent(_popupLoginRepository);
+        }
 
-        //public bool IsLoginRepositoryDisplay()
-        //{
-        //    try
-        //    {
-        //        return FindWebElement(_popupLoginRepository).Displayed;
-        //    }
-
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
     }
 }
