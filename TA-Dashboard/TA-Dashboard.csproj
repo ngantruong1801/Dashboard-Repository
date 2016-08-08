@@ -66,7 +66,7 @@
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\TestData.cs" />
     <Compile Include="PageObjects\AddNewPanelPage.cs" />
-    <Compile Include="Common\CommonActions.cs" />
+    <Compile Include="PageObjects\CommonActions.cs" />
     <Compile Include="PageObjects\DataProfilesPage.cs" />
     <Compile Include="PageObjects\EditPagePage.cs" />
     <Compile Include="PageObjects\EditPanelPage.cs" />
