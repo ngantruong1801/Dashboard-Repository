@@ -5,6 +5,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using System.Threading;
 
+
 namespace TA_Dashboard.PageObjects
 {
     public class GeneralPage
@@ -16,12 +17,12 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
-        public static readonly By _subTabAddPage = By.XPath("a[.='Add Page']");
-        public static readonly By _subTabCreateProfile = By.XPath("a[.='Create Profile']");
-        public static readonly By _subTabCreatePanel = By.XPath("a[.='Create Panel']");
+        public static readonly By _subTabAddPage = By.XPath("//div[@id='main-menu']//a[@class='add' and .='Add Page']");
+        public static readonly By _subTabCreateProfile = By.XPath("//a[.='Create Profile']");
+        public static readonly By _subTabCreatePanel = By.XPath("//a[.='Create Panel']");
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
-        public static readonly By _tabOverview = By.XPath("a[.='Overview']");
-        public static readonly By _tabExecutionDashboard = By.XPath("a[.='Execution Dashboard']");
+        public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
+        public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
         public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
         #endregion
 
@@ -97,6 +98,9 @@ namespace TA_Dashboard.PageObjects
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
+            action.MoveToElement(FindWebElement(locator)).Perform();
+            Thread.Sleep(2000);
+            
             action.MoveToElement(FindWebElement(locator)).Build().Perform();
             action.MoveByOffset(10,0);
         }
@@ -116,18 +120,7 @@ namespace TA_Dashboard.PageObjects
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
-        }
-
-        public void move()
-        { 
-        //IJavaScriptExecutor js = (IJavaScriptExecutor)(Constant.driver);
-            string javaScript = "var evObj = document.createEvent('MouseEvents');" +
-                                 "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" +
-                                 "arguments[0].dispatchEvent(evObj);";
-            IJavaScriptExecutor js = Constant.driver as IJavaScriptExecutor;
-            js.ExecuteScript(javaScript, FindWebElement(_tabUser)
-                );
-        }
+        }  
     }
 }
 
