@@ -26,7 +26,6 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.invalidUsername, TestData.invalidPassword);
             string actualMessage = loginPage.GetTextPopup();
-            Console.WriteLine(actualMessage);
             CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
         }
 

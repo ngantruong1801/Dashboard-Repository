@@ -89,12 +89,8 @@ namespace TA_Dashboard.PageObjects
 
         public void Logout()
         {
-            if (IsElementPresent(MainPage._tabUser) == true)
-            {
                 MouseHover(MainPage._tabUser);
-                //move();
                 Click(MainPage._tabLogout);
-            
         }
         public void MouseHover(By locator)
         {
