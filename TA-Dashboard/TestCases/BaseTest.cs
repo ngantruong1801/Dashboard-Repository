@@ -32,7 +32,7 @@ namespace TA_Dashboard.TestCases
                     loginPage.ConfirmPopup();
                     break;
                 case "DA_MP_TC012_Verify_that_user_is_able_to_add_additional_pages_besides_Overview_page_successfully":
-                    mainPage.DeletePage("test123");
+                    mainPage.DeletePage(TestData.addPageName);
                     mainPage.Logout();
                     break;
                 default:

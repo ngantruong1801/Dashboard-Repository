@@ -28,5 +28,6 @@ namespace TA_Dashboard.Common
         public static string blankUsername = "";
         public static string blankPassword = "";
         public static string errorBlankUsernameLoginMessage = "Please enter username";
+        public static string addPageName = "test123";
     }
 }

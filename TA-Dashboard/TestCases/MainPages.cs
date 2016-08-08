@@ -21,8 +21,10 @@ namespace TA_Dashboard.TestCases
 
             NewPage newPage=new NewPage();
             
-            newPage.AddPage("test123","","","","");
-            
+            newPage.AddPage(TestData.addPageName,"","","","");
+
+            //VP: New page is displayed besides "Overview" page
+
         }
     }
 }
