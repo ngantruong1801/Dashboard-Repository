@@ -8,6 +8,8 @@ using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
+
 
 namespace TA_Dashboard.PageObjects
 {
@@ -15,6 +17,8 @@ namespace TA_Dashboard.PageObjects
     {
         #region Locators
         public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        //public static readonly By _tabUser = By.XPath("//a[text()='administrator']");
+
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
@@ -25,11 +29,12 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
-        public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+        public static readonly By _tabLogout = By.XPath("//a[.='Logout']");
         #endregion
 
         public string GetWelcomeText()
         {
+            
             return GetTextControl(_tabUser);
         }
 
@@ -52,11 +57,13 @@ namespace TA_Dashboard.PageObjects
         }
         public string GetTextControl(By locator)
         {
+            //WaitForElementLoad(locator, 2);
             return Constant.driver.FindElement(locator).Text;
         }
         public void ConfirmPopup()
         {
             Constant.driver.SwitchTo().Alert().Accept();
+            Thread.Sleep(1000);
         }
         public string GetTextPopup()
         {
@@ -88,17 +95,16 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {
-            if (IsElementPresent(MainPage._tabUser) == true)
-            {
-                MouseHover(MainPage._tabUser);
-                Click(MainPage._tabLogout);
-            }
+        {  
+            MouseHover(MainPage._tabUser);
+            Click(MainPage._tabLogout);
+            Thread.Sleep(1000);
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
+            Thread.Sleep(1000);           
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
@@ -135,6 +141,5 @@ namespace TA_Dashboard.PageObjects
         }
     }
 }
-
 
 
