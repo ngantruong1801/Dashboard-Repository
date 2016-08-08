@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
 
 namespace TA_Dashboard.PageObjects
 {
     public class GeneralPage
     {
         #region Locators
-        //public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
-        public static readonly By _tabUser = By.XPath("//a[text()='administrator']");
+        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        //public static readonly By _tabUser = By.XPath("//a[text()='administrator']");
 
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
@@ -88,17 +85,20 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {
+        {  
+          
             if (IsElementPresent(MainPage._tabUser) == true)
             {
-                MouseHover(MainPage._tabUser);
+                //MouseHover(MainPage._tabUser);
+                move();
                 Click(MainPage._tabLogout);
             }
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
-            action.MoveToElement(FindWebElement(locator)).Perform();
+            action.MoveToElement(FindWebElement(locator)).Build().Perform();
+            action.MoveByOffset(10,0);
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
@@ -116,7 +116,18 @@ namespace TA_Dashboard.PageObjects
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
-        }  
+        }
+
+        public void move()
+        { 
+        //IJavaScriptExecutor js = (IJavaScriptExecutor)(Constant.driver);
+            string javaScript = "var evObj = document.createEvent('MouseEvents');" +
+                                 "evObj.initMouseEvent(\"mouseover\",true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);" +
+                                 "arguments[0].dispatchEvent(evObj);";
+            IJavaScriptExecutor js = Constant.driver as IJavaScriptExecutor;
+            js.ExecuteScript(javaScript, FindWebElement(_tabUser)
+                );
+        }
     }
 }
 
