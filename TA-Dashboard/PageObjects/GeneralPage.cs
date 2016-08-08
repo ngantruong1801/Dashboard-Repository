@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -12,25 +17,19 @@ namespace TA_Dashboard.PageObjects
     public class GeneralPage
     {
         #region Locators
-        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
-        //public static readonly By _tabUser = By.XPath("//a[text()='administrator']");
-
-        public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
         public static readonly By _subTabAddPage = By.XPath("//div[@id='main-menu']//a[@class='add' and .='Add Page']");
         public static readonly By _subTabCreateProfile = By.XPath("//a[.='Create Profile']");
         public static readonly By _subTabCreatePanel = By.XPath("//a[.='Create Panel']");
+        public static readonly By _subTabDelete = By.XPath(".//a[@class='delete' and .='Delete']");
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
-        public static readonly By _tabLogout = By.XPath("//a[.='Logout']");
+        public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+       
         #endregion
 
-        public string GetWelcomeText()
-        {
-            return GetTextControl(_tabUser);
-        }
 
         public IWebElement FindWebElement(By locator)
         {
@@ -51,7 +50,7 @@ namespace TA_Dashboard.PageObjects
         }
         public string GetTextControl(By locator)
         {
-            //WaitForElementLoad(locator, 2);
+            WaitForElementLoad(locator, 3);
             return Constant.driver.FindElement(locator).Text;
         }
         public void ConfirmPopup()
@@ -75,12 +74,12 @@ namespace TA_Dashboard.PageObjects
             selectcontrol.SelectByIndex(index);
         }
 
-        public static bool IsElementPresent(By locator)
+        public bool IsElementPresent(By locator)
         {
             try
             {
-                Constant.driver.FindElement(locator);
-                return true;
+                return FindWebElement(locator).Displayed;
+                
             }
             catch (NoSuchElementException)
             {
@@ -89,17 +88,16 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {
+        {  
                 MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
-               Thread.Sleep(1000);
+            
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
-            Thread.Sleep(2000);
-            
+            Thread.Sleep(1000);
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
@@ -112,12 +110,27 @@ namespace TA_Dashboard.PageObjects
         }
         public void ClickTab(string tabName)
         {
-            FindWebElement(By.XPath("//a[.='"+tabName+"']")).Click();
+            FindWebElement(By.XPath("//a[.='" + tabName + "']")).Click();
         }
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
-        }  
+        }
+
+        public void OpenAddPageDialog()
+        {
+            MouseHover(_tabGlobalSetting);
+            Click(_subTabAddPage);
+        }
+
+        public void DeletePage(string pageName)
+        {
+            ClickTab(pageName);
+            MouseHover(_tabGlobalSetting);
+            Click(_subTabDelete);
+            IAlert alert = Constant.driver.SwitchTo().Alert();
+            alert.Accept();
+        }
 
         
     }
