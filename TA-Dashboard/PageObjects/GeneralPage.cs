@@ -1,30 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
+
 
 namespace TA_Dashboard.PageObjects
 {
     public class GeneralPage
     {
         #region Locators
-        //public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
-        public static readonly By _tabUser = By.XPath("//a[text()='administrator']");
+        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        //public static readonly By _tabUser = By.XPath("//a[text()='administrator']");
 
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
-        public static readonly By _subTabAddPage = By.XPath("a[.='Add Page']");
-        public static readonly By _subTabCreateProfile = By.XPath("a[.='Create Profile']");
-        public static readonly By _subTabCreatePanel = By.XPath("a[.='Create Panel']");
+        public static readonly By _subTabAddPage = By.XPath("//div[@id='main-menu']//a[@class='add' and .='Add Page']");
+        public static readonly By _subTabCreateProfile = By.XPath("//a[.='Create Profile']");
+        public static readonly By _subTabCreatePanel = By.XPath("//a[.='Create Panel']");
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
-        public static readonly By _tabOverview = By.XPath("a[.='Overview']");
-        public static readonly By _tabExecutionDashboard = By.XPath("a[.='Execution Dashboard']");
+        public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
+        public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
         public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
         #endregion
 
@@ -88,10 +86,12 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {
+        {  
+          
             if (IsElementPresent(MainPage._tabUser) == true)
             {
-                MouseHover(MainPage._tabUser);
+                //MouseHover(MainPage._tabUser);
+                move();
                 Click(MainPage._tabLogout);
             }
         }
@@ -99,6 +99,8 @@ namespace TA_Dashboard.PageObjects
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
+            Thread.Sleep(2000);
+            
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
