@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 
 namespace TA_Dashboard.PageObjects
 {
-    public class NewPage:GeneralPage
+    public class NewPage : GeneralPage
     {
         #region Locators
         static readonly By _txtPageName = By.Id("name");
@@ -22,6 +22,7 @@ namespace TA_Dashboard.PageObjects
         #region Methods
         public void AddPage(string pageName, string parentPage, string numberOfColumns, string displayAfter, string status)
         {
+            WaitForElementLoad(_txtPageName, 3);
             EnterValue(_txtPageName, pageName);
             SelectValue(_cboParentPage, parentPage);
             SelectValue(_cboNumberOfColumns, numberOfColumns);

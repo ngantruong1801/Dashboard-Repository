@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
@@ -20,6 +21,7 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _subTabAddPage = By.XPath("//div[@id='main-menu']//a[@class='add' and .='Add Page']");
         public static readonly By _subTabCreateProfile = By.XPath("//a[.='Create Profile']");
         public static readonly By _subTabCreatePanel = By.XPath("//a[.='Create Panel']");
+        public static readonly By _subTabDelete = By.XPath(".//a[@class='delete' and .='Delete']");
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
@@ -109,7 +111,7 @@ namespace TA_Dashboard.PageObjects
         }
         public void ClickTab(string tabName)
         {
-            FindWebElement(By.XPath("//a[.='"+tabName+"']")).Click();
+            FindWebElement(By.XPath("//a[.='" + tabName + "']")).Click();
         }
         public void ClickButtonChosePanels()
         {
@@ -122,7 +124,15 @@ namespace TA_Dashboard.PageObjects
             Click(_subTabAddPage);
         }
 
-
+        public void DeletePage(string pageName)
+        {
+            Thread.Sleep(1000);
+            ClickTab(pageName);
+            MouseHover(_tabGlobalSetting);
+            Click(_subTabDelete);
+            IAlert alert = Constant.driver.SwitchTo().Alert();
+            alert.Accept();
+        }
     }
 }
 
