@@ -15,7 +15,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
         {
-            CommonActions.OpenBrowser("ie");
+            CommonActions.OpenBrowser("chrome");
         }
 
         [TestCleanup]
@@ -29,7 +29,6 @@ namespace TA_Dashboard.TestCases
                     loginPage.ConfirmPopup();
                     Thread.Sleep(1000);
                     break;
-
                 default:
                     mainPage.Logout();
                     break;
@@ -39,7 +38,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyCleanup]
         public static void AssemblyCleapUpMethod()
         {
-            CommonActions.CloseBrowser();
+           // CommonActions.CloseBrowser();
         }
     }
 }
