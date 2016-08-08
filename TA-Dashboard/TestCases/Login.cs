@@ -119,17 +119,6 @@ namespace TA_Dashboard.TestCases
             string actualMessage = loginPage.GetTextPopup();
             CheckTextDisplays(TestData.errorBlankUsernameLoginMessage, actualMessage);
         }
-
-        [TestMethod]
-        public void DA_LOGIN_TC004_Verify_that_user_is_able_to_log_in_different_repositories_successfully_after_logging_out_current_repository()
-        {
-            NavigateTADashboard();
-            loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
-            MainPage mainPage = new MainPage();
-            mainPage.Logout();
-            loginPage.Login("TestRepository", TestData.validUsername, TestData.validPassword);
-            string actualText = mainPage.GetWelcomeText();
-            CheckTextDisplays(TestData.validUsername, actualText);
-        }
+      
     }
 }
