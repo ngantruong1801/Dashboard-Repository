@@ -87,7 +87,7 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {  
+        {
             MouseHover(MainPage._tabUser);
             Click(MainPage._tabLogout);
             Thread.Sleep(1000);
@@ -96,7 +96,7 @@ namespace TA_Dashboard.PageObjects
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
-            Thread.Sleep(1000);           
+            Thread.Sleep(1000);
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
@@ -130,7 +130,6 @@ namespace TA_Dashboard.PageObjects
             IAlert alert = Constant.driver.SwitchTo().Alert();
             alert.Accept();
         }
-        }  
 
         public bool IsLoginRepositoryDisplay()
         {
@@ -142,9 +141,10 @@ namespace TA_Dashboard.PageObjects
             {
                 return false;
             }
-            
+
         }
     }
 }
+
 
 

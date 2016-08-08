@@ -12,6 +12,7 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _lblRepository = By.XPath("//a[@href='#Repository']/span");
+        public static readonly By _popupLoginRepository = By.XPath("//h2[text()='Login Repository']");
         //public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         //public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
         //public static readonly By _subTabAddPage = By.XPath("a[.='Add Page']");
@@ -22,10 +23,6 @@ namespace TA_Dashboard.PageObjects
         //public static readonly By _tabExecutionDashboard = By.XPath("a[.='Execution Dashboard']");
         //public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
 
-        //public string GetWelcomeText()
-        //{
-        //    return GetTextControl(_tabUser);
-        //}
 
         public void ChooseRepository(string repository)
         {
@@ -42,5 +39,18 @@ namespace TA_Dashboard.PageObjects
         {
             return GetTextControl(_lblRepository);
         }
+
+        //public bool IsLoginRepositoryDisplay()
+        //{
+        //    try
+        //    {
+        //        return FindWebElement(_popupLoginRepository).Displayed;
+        //    }
+
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

@@ -62,7 +62,6 @@ namespace TA_Dashboard.TestCases
             Assert.IsFalse(mainPage.IsLoginRepositoryDisplay());
             //Thread.Sleep(2000);
             string actualRepository = mainPage.GetRepository();
-            Console.WriteLine(actualRepository);
             CheckTextDisplays(actualRepository, TestData.testReponsitory);
         }
 
