@@ -116,7 +116,15 @@ namespace TA_Dashboard.PageObjects
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
-        }  
+        }
+
+        public void move()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)(Constant.driver);
+            string script = "$('document').find('a[href='#Welcome']')";
+            IWebElement a = (IWebElement)js.ExecuteScript(script
+                );
+        }
     }
 }
 
