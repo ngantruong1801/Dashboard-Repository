@@ -18,7 +18,6 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);         
             string actualText = mainPage.GetWelcomeText();
-            Console.WriteLine(actualText);
             CheckTextDisplays(TestData.validUsername, actualText);
         }
 
@@ -44,12 +43,10 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.testUsername, TestData.testUppercasePassword);
             string actualText = mainPage.GetWelcomeText();
-            Console.WriteLine(actualText);
             CheckTextDisplays(TestData.testUsername, actualText);
             mainPage.Logout();
             loginPage.Login(TestData.defaulRepository, TestData.testUsername, TestData.testLowercasePassword);
             string actualMessage = loginPage.GetTextPopup();
-            Console.WriteLine(actualMessage);
             CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
         }
 
@@ -59,12 +56,10 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.uppercaseUsername, TestData.lowercasePassword);
             string actualText1 = mainPage.GetWelcomeText();
-            Console.WriteLine(actualText1);
             CheckTextDisplays(TestData.uppercaseUsername, actualText1);
             mainPage.Logout();
             loginPage.Login(TestData.defaulRepository, TestData.lowercaseUsername, TestData.lowercasePassword);
             string actualText2 = mainPage.GetWelcomeText();
-            Console.WriteLine(actualText2);
             CheckTextDisplays(TestData.uppercaseUsername, actualText2);
         }
 
@@ -74,7 +69,6 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.specialUsername, TestData.specialCharactersPassword);
             string actualText = mainPage.GetWelcomeText();
-            Console.WriteLine(actualText);
             CheckTextDisplays(TestData.specialUsername, actualText);
         }
 
@@ -84,7 +78,6 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.specialCharactersUsername, TestData.specialPassword);
             string actualText = mainPage.GetWelcomeText();
-            Console.WriteLine(actualText);
             CheckTextDisplays(TestData.specialCharactersUsername, actualText);
         }
 
@@ -94,7 +87,6 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.blankUsername, TestData.blankPassword);
             string actualMessage = loginPage.GetTextPopup();
-            Console.WriteLine(actualMessage);
             CheckTextDisplays(TestData.errorBlankUsernameLoginMessage, actualMessage);
         }
     }
