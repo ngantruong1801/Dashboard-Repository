@@ -132,7 +132,6 @@ namespace TA_Dashboard.PageObjects
 
         public void DeletePage(string pageName)
         {
-            Thread.Sleep(1000);
             ClickTab(pageName);
             MouseHover(_tabGlobalSetting);
             Click(_subTabDelete);

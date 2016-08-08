@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
@@ -32,6 +33,7 @@ namespace TA_Dashboard.PageObjects
                 FindWebElement(_chkPublic).Click();
             }
             FindWebElement(_btnOK).Click();
+            Thread.Sleep(2000);
         }
         #endregion
 
