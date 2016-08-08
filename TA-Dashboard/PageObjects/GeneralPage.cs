@@ -7,6 +7,8 @@ using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
+
 
 namespace TA_Dashboard.PageObjects
 {
@@ -97,6 +99,8 @@ namespace TA_Dashboard.PageObjects
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
+            Thread.Sleep(2000);
+            
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
