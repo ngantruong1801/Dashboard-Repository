@@ -27,7 +27,7 @@ namespace TA_Dashboard.Common
                 case "CHROME":
                     ChromeOptions options = new ChromeOptions();
                     options.AddArguments("--disable-extensions");
-                    Constant.driver = new ChromeDriver();
+                    Constant.driver = new ChromeDriver(options);
                     Constant.driver.Manage().Window.Maximize();
                     break;
                 case "IE":
