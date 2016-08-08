@@ -15,7 +15,11 @@ namespace TA_Dashboard.Common
         public static string invalidUsername = "abc";
         public static string invalidPassword = "abc";
         public static string errorLoginMessage = "Username or password is invalid";
-
-
+        public static string testUsername = "test";
+        public static string testUppercasePassword = "TEST";
+        public static string testLowercasePassword = "test";
+        public static string uppercaseUsername = "UPPERCASEUSERNAME";
+        public static string lowercasePassword = "uppercaseusername";
+        public static string lowercaseUsername = "uppercaseusername";
     }
 }
