@@ -90,15 +90,13 @@ namespace TA_Dashboard.PageObjects
         public void Logout()
         {  
                 MouseHover(MainPage._tabUser);
-                Click(MainPage._tabLogout);
-            }
+                Click(MainPage._tabLogout);        
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
-            Thread.Sleep(2000);
-            
+            Thread.Sleep(1000);           
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
@@ -116,11 +114,8 @@ namespace TA_Dashboard.PageObjects
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
-        }  
-
-        
+        }          
     }
-
 }
 
 
