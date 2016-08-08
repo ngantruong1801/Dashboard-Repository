@@ -57,6 +57,7 @@ namespace TA_Dashboard.PageObjects
         public void ConfirmPopup()
         {
             Constant.driver.SwitchTo().Alert().Accept();
+            Thread.Sleep(1000);
         }
         public string GetTextPopup()
         {
@@ -89,8 +90,9 @@ namespace TA_Dashboard.PageObjects
 
         public void Logout()
         {  
-                MouseHover(MainPage._tabUser);
-                Click(MainPage._tabLogout);        
+            MouseHover(MainPage._tabUser);
+            Click(MainPage._tabLogout);
+            Thread.Sleep(1000);
         }
         public void MouseHover(By locator)
         {
