@@ -30,12 +30,14 @@ namespace TA_Dashboard.TestCases
                 case "DA_LOGIN_TC010_Verify_that_the_page_works_correctly_for_the_case_when_no_input_entered_to_Password_and_Username_field":
                     Thread.Sleep(1000);
                     loginPage.ConfirmPopup();
-                    Thread.Sleep(1000);
+                    break;
+                case "DA_MP_TC012_Verify_that_user_is_able_to_add_additional_pages_besides_Overview_page_successfully":
+                    mainPage.DeletePage(TestData.addPageName);
+                    mainPage.Logout();
                     break;
                 default:
                     Thread.Sleep(1000);
                     mainPage.Logout();
-                    Thread.Sleep(1000);
                     break;
             }
         }
