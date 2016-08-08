@@ -18,7 +18,7 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);         
             string actualText = mainPage.GetWelcomeText();
-            //Console.WriteLine(actualText);
+            Console.WriteLine(actualText);
             CheckTextDisplays(TestData.validUsername, actualText);
         }
 
@@ -44,10 +44,12 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.testUsername, TestData.testUppercasePassword);
             string actualText = mainPage.GetWelcomeText();
+            Console.WriteLine(actualText);
             CheckTextDisplays(TestData.testUsername, actualText);
             mainPage.Logout();
             loginPage.Login(TestData.defaulRepository, TestData.testUsername, TestData.testLowercasePassword);
             string actualMessage = loginPage.GetTextPopup();
+            Console.WriteLine(actualMessage);
             CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
         }
 
@@ -57,11 +59,43 @@ namespace TA_Dashboard.TestCases
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.uppercaseUsername, TestData.lowercasePassword);
             string actualText1 = mainPage.GetWelcomeText();
+            Console.WriteLine(actualText1);
             CheckTextDisplays(TestData.uppercaseUsername, actualText1);
             mainPage.Logout();
             loginPage.Login(TestData.defaulRepository, TestData.lowercaseUsername, TestData.lowercasePassword);
             string actualText2 = mainPage.GetWelcomeText();
+            Console.WriteLine(actualText2);
             CheckTextDisplays(TestData.uppercaseUsername, actualText2);
+        }
+
+        [TestMethod]
+        public void DA_LOGIN_TC008_Verify_that_password_with_special_characters_is_working_correctly()
+        {
+            NavigateTADashboard();
+            loginPage.Login(TestData.defaulRepository, TestData.specialUsername, TestData.specialCharactersPassword);
+            string actualText = mainPage.GetWelcomeText();
+            Console.WriteLine(actualText);
+            CheckTextDisplays(TestData.specialUsername, actualText);
+        }
+
+        [TestMethod]
+        public void DA_LOGIN_TC009_Verify_that_username_with_special_characters_is_working_correctly()
+        {
+            NavigateTADashboard();
+            loginPage.Login(TestData.defaulRepository, TestData.specialCharactersUsername, TestData.specialPassword);
+            string actualText = mainPage.GetWelcomeText();
+            Console.WriteLine(actualText);
+            CheckTextDisplays(TestData.specialCharactersUsername, actualText);
+        }
+
+        [TestMethod]
+        public void DA_LOGIN_TC010_Verify_that_the_page_works_correctly_for_the_case_when_no_input_entered_to_Password_and_Username_field()
+        {
+            NavigateTADashboard();
+            loginPage.Login(TestData.defaulRepository, TestData.blankUsername, TestData.blankPassword);
+            string actualMessage = loginPage.GetTextPopup();
+            Console.WriteLine(actualMessage);
+            CheckTextDisplays(TestData.errorBlankUsernameLoginMessage, actualMessage);
         }
     }
 }
