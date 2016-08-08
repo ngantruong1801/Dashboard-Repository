@@ -91,7 +91,7 @@ namespace TA_Dashboard.PageObjects
         {  
                 MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
-            }
+            
         }
         public void MouseHover(By locator)
         {
