@@ -19,7 +19,7 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
-        public static readonly By _subTabAddPage = By.XPath("//a[.='Add Page']");
+        public static readonly By _subTabAddPage = By.XPath("//div[@id='main-menu']//a[@class='add' and .='Add Page']");
         public static readonly By _subTabCreateProfile = By.XPath("//a[.='Create Profile']");
         public static readonly By _subTabCreatePanel = By.XPath("//a[.='Create Panel']");
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
@@ -118,7 +118,15 @@ namespace TA_Dashboard.PageObjects
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
-        }  
+        }
+
+        public void OpenAddPageDialog()
+        {
+            MouseHover(_tabGlobalSetting);
+            Click(_subTabAddPage);
+        }
+
+
     }
 }
 
