@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
+
 
 namespace TA_Dashboard.PageObjects
 {
@@ -15,9 +18,10 @@ namespace TA_Dashboard.PageObjects
         #region Locators
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
-        public static readonly By _subTabAddPage = By.XPath("//a[.='Add Page']");
+        public static readonly By _subTabAddPage = By.XPath("//div[@id='main-menu']//a[@class='add' and .='Add Page']");
         public static readonly By _subTabCreateProfile = By.XPath("//a[.='Create Profile']");
         public static readonly By _subTabCreatePanel = By.XPath("//a[.='Create Panel']");
+        public static readonly By _subTabDelete = By.XPath(".//a[@class='delete' and .='Delete']");
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
@@ -45,11 +49,13 @@ namespace TA_Dashboard.PageObjects
         }
         public string GetTextControl(By locator)
         {
+            //WaitForElementLoad(locator, 2);
             return Constant.driver.FindElement(locator).Text;
         }
         public void ConfirmPopup()
         {
             Constant.driver.SwitchTo().Alert().Accept();
+            Thread.Sleep(1000);
         }
         public string GetTextPopup()
         {
@@ -81,17 +87,16 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {
-            if (IsElementPresent(MainPage._tabUser) == true)
-            {
-                MouseHover(MainPage._tabUser);
-                Click(MainPage._tabLogout);
-            }
+        {  
+            MouseHover(MainPage._tabUser);
+            Click(MainPage._tabLogout);
+            Thread.Sleep(1000);
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
+            Thread.Sleep(1000);           
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
@@ -104,11 +109,27 @@ namespace TA_Dashboard.PageObjects
         }
         public void ClickTab(string tabName)
         {
-            FindWebElement(By.XPath("//a[.='"+tabName+"']")).Click();
+            FindWebElement(By.XPath("//a[.='" + tabName + "']")).Click();
         }
         public void ClickButtonChosePanels()
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
+        }
+
+        public void OpenAddPageDialog()
+        {
+            MouseHover(_tabGlobalSetting);
+            Click(_subTabAddPage);
+        }
+
+        public void DeletePage(string pageName)
+        {
+            ClickTab(pageName);
+            MouseHover(_tabGlobalSetting);
+            Click(_subTabDelete);
+            IAlert alert = Constant.driver.SwitchTo().Alert();
+            alert.Accept();
+        }
         }  
 
         public bool IsLoginRepositoryDisplay()
@@ -125,6 +146,5 @@ namespace TA_Dashboard.PageObjects
         }
     }
 }
-
 
 

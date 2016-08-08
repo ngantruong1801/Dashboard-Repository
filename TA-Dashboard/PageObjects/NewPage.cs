@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
 namespace TA_Dashboard.PageObjects
 {
-    public class NewPage:GeneralPage
+    public class NewPage : GeneralPage
     {
         #region Locators
         static readonly By _txtPageName = By.Id("name");
@@ -22,6 +23,7 @@ namespace TA_Dashboard.PageObjects
         #region Methods
         public void AddPage(string pageName, string parentPage, string numberOfColumns, string displayAfter, string status)
         {
+            WaitForElementLoad(_txtPageName, 3);
             EnterValue(_txtPageName, pageName);
             SelectValue(_cboParentPage, parentPage);
             SelectValue(_cboNumberOfColumns, numberOfColumns);
@@ -31,6 +33,7 @@ namespace TA_Dashboard.PageObjects
                 FindWebElement(_chkPublic).Click();
             }
             FindWebElement(_btnOK).Click();
+            Thread.Sleep(2000);
         }
         #endregion
 
