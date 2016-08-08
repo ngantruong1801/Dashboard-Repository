@@ -16,9 +16,9 @@ namespace TA_Dashboard.PageObjects
     public class GeneralPage
     {
         #region Locators
-        //public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
-        public static readonly By _tabUser = By.XPath("//a[.= 'administrator']");
-
+        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        //public static readonly By _tabUser = By.XPath("//a[.= 'administrator']");
+        //public static readonly By _tabUser = By.XPath("//a[@href='#Welcome' and text() = 'administrator']");
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
@@ -79,6 +79,7 @@ namespace TA_Dashboard.PageObjects
 
         public static bool IsElementPresent(By locator)
         {
+            Thread.Sleep(1000);
             try
             {
                 Constant.driver.FindElement(locator);
@@ -94,16 +95,16 @@ namespace TA_Dashboard.PageObjects
         {
             Thread.Sleep(1000);
             if (IsElementPresent(MainPage._tabUser) == true)
-            {
-                //MouseHover(MainPage._tabUser);
-                move();
+            {   
+                MouseHover(MainPage._tabUser);
+                //move();
                 Click(MainPage._tabLogout);
             }
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
-            action.MoveToElement(FindWebElement(locator)).Perform();
+            action.MoveToElement(FindWebElement(locator)).Build().Perform();
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
@@ -127,8 +128,7 @@ namespace TA_Dashboard.PageObjects
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)(Constant.driver);
             string script = "$('document').getElementByXpath(//a[href='#Welcome']).innerHTML.mousemove()";
-            IWebElement a = (IWebElement)js.ExecuteScript(script
-                );
+            IWebElement a = (IWebElement)js.ExecuteScript(script);
         }
     }
 }
