@@ -37,5 +37,12 @@ namespace TA_Dashboard.TestCases
             string actualMessage = loginPage.GetTextPopup();
             CheckTextDisplays(TestData.errorLoginMessage, actualMessage);
         }
+
+        [TestMethod]
+        public void DA_LOGIN_TC006_Verify_that_Password_input_is_case_sensitive()
+        {
+
+        }
+
     }
 }

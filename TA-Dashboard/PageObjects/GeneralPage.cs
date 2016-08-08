@@ -92,6 +92,7 @@ namespace TA_Dashboard.PageObjects
             if (IsElementPresent(MainPage._tabUser) == true)
             {
                 MouseHover(MainPage._tabUser);
+                //move();
                 Click(MainPage._tabLogout);
             }
         }
@@ -121,7 +122,7 @@ namespace TA_Dashboard.PageObjects
         public void move()
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)(Constant.driver);
-            string script = "$('document').find('a[href='#Welcome']')";
+            string script = "$('document').find('a[href='#Welcome']').onmouseover";
             IWebElement a = (IWebElement)js.ExecuteScript(script
                 );
         }
