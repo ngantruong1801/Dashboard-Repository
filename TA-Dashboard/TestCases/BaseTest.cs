@@ -9,8 +9,8 @@ namespace TA_Dashboard.TestCases
     public class BaseTest : CommonActions
     {
         public TestContext TestContext { get; set; }
-        MainPage mainPage = new MainPage();
-        LoginPage loginPage = new LoginPage();
+        PageObjects.MainPage mainPage = new PageObjects.MainPage();
+        PageObjects.LoginPage loginPage = new PageObjects.LoginPage();
 
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
