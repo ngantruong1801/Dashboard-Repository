@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium;
-using TA_Dashboard.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
@@ -11,6 +9,7 @@ namespace TA_Dashboard.Common
 {
     public class CommonActions
     {
+        #region Methods
         public static void CheckTextDisplays(string expectedText, string actualText)
         {
             Assert.AreEqual(expectedText, actualText);
@@ -61,6 +60,6 @@ namespace TA_Dashboard.Common
             Constant.driver.Navigate().GoToUrl(TestData.dashBoardURL);
         }
 
-       
+        #endregion
     }
 }
