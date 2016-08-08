@@ -13,8 +13,6 @@ namespace TA_Dashboard.PageObjects
     public class GeneralPage
     {
         #region Locators
-        public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
-        public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
         public static readonly By _subTabAddPage = By.XPath("//a[.='Add Page']");
@@ -24,12 +22,9 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
         public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+        public static readonly By _popupLoginRepository = By.XPath("//h2[text()='Login Repository']");
         #endregion
 
-        public string GetWelcomeText()
-        {
-            return GetTextControl(_tabUser);
-        }
 
         public IWebElement FindWebElement(By locator)
         {
@@ -115,6 +110,19 @@ namespace TA_Dashboard.PageObjects
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
         }  
+
+        public bool IsLoginRepositoryDisplay()
+        {
+            try
+            {
+                return FindWebElement(_popupLoginRepository).Displayed;
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
     }
 }
 
