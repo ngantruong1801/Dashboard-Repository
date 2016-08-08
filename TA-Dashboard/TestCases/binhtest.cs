@@ -7,38 +7,21 @@ using System.Threading;
 
 namespace TA_Dashboard.TestCases
 {
-    [TestClass]
-    public class binhtest:BaseTest
-    {
-        [TestMethod]
-        public void TestMethod1()
-        {
-            //NavigateTADashboard();
-            //LoginPage loginPage = new LoginPage();
-            //loginPage.Login(TestData.defaulRepository, "dieu.nguyen", "123");
-            //GeneralPage generalPage = new GeneralPage();
-            //generalPage.MouseHover(GeneralPage._tabGlobalSetting);
-            //generalPage.ClickTab("Add Page");
-            //NewPage newPage = new NewPage();
-            NavigateTADashboard();
-            LoginPage loginPage = new LoginPage();
-            loginPage.Login(TestData.defaulRepository, "administrator", "");
-            MainPage mainPage = new MainPage();
-            //mainPage.FindWebElement(By.XPath("//a[.='Dieu']")).Click();
-
-            mainPage.MouseHover(MainPage._tabGlobalSetting);
-
-
-            mainPage.ClickTab("Add Page");
-            NewPage newpage = new NewPage();
-            
-
-            ////Thread.Sleep(1000);
-            //mainPage.MouseHoverGlobalSetting();
-            //Thread.Sleep(1000);
-            //mainPage.MouseHoverGlobalSetting();
-            //Thread.Sleep(1000);
-            //mainPage.ClickButtonChosePanels();
-        }
-    }
+    ////[TestClass]
+    ////public class UnitTest1:BaseTest
+    ////{
+    ////    [TestMethod]
+    ////    public void TestMethod1()
+    ////    {
+    ////        //NavigateTADashboard();
+    ////        //LoginPage loginPage = new LoginPage();
+    ////        //loginPage.Login(TestData.defaulRepository, "dieu.nguyen", "123");
+    ////        //GeneralPage generalPage = new GeneralPage();
+    ////        //generalPage.MouseHover(GeneralPage._tabGlobalSetting);
+    ////        //generalPage.ClickTab("Add Page");
+    ////        //NewPage newPage = new NewPage();
+    ////        //Thread.Sleep(1000);
+    ////        //newPage.AddPage("Dieu2", "Dieu1", "3", "", "public");
+    ////    }
+    ////}
 }

@@ -23,11 +23,12 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
-        public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+        public static readonly By _tabLogout = By.XPath("//a[.='Logout']");
         #endregion
 
         public string GetWelcomeText()
         {
+            
             return GetTextControl(_tabUser);
         }
 
@@ -50,6 +51,7 @@ namespace TA_Dashboard.PageObjects
         }
         public string GetTextControl(By locator)
         {
+            //WaitForElementLoad(locator, 2);
             return Constant.driver.FindElement(locator).Text;
         }
         public void ConfirmPopup()
@@ -86,14 +88,13 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {  
-          
+        {
             if (IsElementPresent(MainPage._tabUser) == true)
             {
                 MouseHover(MainPage._tabUser);
                 //move();
                 Click(MainPage._tabLogout);
-            }
+            
         }
         public void MouseHover(By locator)
         {
@@ -119,6 +120,8 @@ namespace TA_Dashboard.PageObjects
         {
             FindWebElement(MainPage._btnChoosePanels).Click();
         }  
+
+        
     }
 }
 

@@ -26,12 +26,16 @@ namespace TA_Dashboard.TestCases
             {
                 case "DA_LOGIN_TC002_Verify_that_user_fails_to_login_specific_repository_successfully_via_Dashboard_login_page_with_incorrect_credentials":
                 case "DA_LOGIN_TC003_Verify_that_user_fails_with_correct_username_and_incorrect_password":
+                case "DA_LOGIN_TC006_Verify_that_Password_input_is_case_sensitive":
+                case "DA_LOGIN_TC010_Verify_that_the_page_works_correctly_for_the_case_when_no_input_entered_to_Password_and_Username_field":
+                    Thread.Sleep(1000);
                     loginPage.ConfirmPopup();
                     Thread.Sleep(1000);
                     break;
-
                 default:
+                    Thread.Sleep(1000);
                     mainPage.Logout();
+                    Thread.Sleep(1000);
                     break;
             }
         }
@@ -39,7 +43,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyCleanup]
         public static void AssemblyCleapUpMethod()
         {
-          CommonActions.CloseBrowser();
+            CommonActions.CloseBrowser();
         }
     }
 }
