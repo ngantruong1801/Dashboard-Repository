@@ -23,7 +23,7 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
-        public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+        public static readonly By _tabLogout = By.XPath("//a[.='Logout']");
         #endregion
 
         public string GetWelcomeText()
@@ -91,14 +91,14 @@ namespace TA_Dashboard.PageObjects
         {  
                 MouseHover(MainPage._tabUser);
                 Click(MainPage._tabLogout);
-                Thread.Sleep(1000);
-
+            }
         }
         public void MouseHover(By locator)
         {
             Actions action = new Actions(Constant.driver);
             action.MoveToElement(FindWebElement(locator)).Perform();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
+            
         }
 
         public void WaitForElementLoad(By locator, int timeoutInSeconds)
