@@ -7,6 +7,9 @@ using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
+
+     
 
 namespace TA_Dashboard.PageObjects
 {
@@ -14,7 +17,7 @@ namespace TA_Dashboard.PageObjects
     {
         #region Locators
         //public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
-        public static readonly By _tabUser = By.XPath("//a[text() = 'administrator']/..");
+        public static readonly By _tabUser = By.XPath("//a[.= 'administrator']");
 
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
@@ -89,10 +92,11 @@ namespace TA_Dashboard.PageObjects
 
         public void Logout()
         {
+            Thread.Sleep(1000);
             if (IsElementPresent(MainPage._tabUser) == true)
             {
-                MouseHover(MainPage._tabUser);
-                //move();
+                //MouseHover(MainPage._tabUser);
+                move();
                 Click(MainPage._tabLogout);
             }
         }
@@ -122,7 +126,7 @@ namespace TA_Dashboard.PageObjects
         public void move()
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)(Constant.driver);
-            string script = "$('document').find('a[href='#Welcome']').onmouseover";
+            string script = "$('document').getElementByXpath(//a[href='#Welcome']).innerHTML.mousemove()";
             IWebElement a = (IWebElement)js.ExecuteScript(script
                 );
         }
