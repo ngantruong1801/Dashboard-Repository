@@ -93,13 +93,15 @@ namespace TA_Dashboard.PageObjects
 
         public void Logout()
         {
-            Thread.Sleep(1000);
-            if (IsElementPresent(MainPage._tabUser) == true)
-            {   
+            //Thread.Sleep(1000);
+            //if (IsElementPresent(MainPage._tabUser) == true)
+            //{   
+                Thread.Sleep(1000);
                 MouseHover(MainPage._tabUser);
                 //move();
                 Click(MainPage._tabLogout);
-            }
+                Thread.Sleep(1000);
+            //}
         }
         public void MouseHover(By locator)
         {

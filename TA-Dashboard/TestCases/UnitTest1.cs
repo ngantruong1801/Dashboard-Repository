@@ -8,7 +8,7 @@ using System.Threading;
 namespace TA_Dashboard.TestCases
 {
     [TestClass]
-    public class UnitTest1:BaseTest
+    public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()
