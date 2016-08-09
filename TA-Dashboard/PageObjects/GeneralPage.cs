@@ -57,12 +57,13 @@ namespace TA_Dashboard.PageObjects
 
         public void ConfirmPopup()
         {
-            Constant.driver.SwitchTo().Alert().Accept();
             Thread.Sleep(1000);
+            Constant.driver.SwitchTo().Alert().Accept();
         }
 
         public string GetTextPopup()
         {
+            Thread.Sleep(1000);
             return Constant.driver.SwitchTo().Alert().Text;
         }
 
