@@ -34,4 +34,3 @@ namespace TA_Dashboard.PageObjects
 
     }
 }
-}
