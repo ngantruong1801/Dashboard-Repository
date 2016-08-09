@@ -10,6 +10,8 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _lblRepository = By.XPath("//a[@href='#Repository']/span");
         public static readonly By _popupLoginRepository = By.XPath("//h2[text()='Login Repository']");
 
+        #endregion
+
         #region Methods
         public void ChooseRepository(string repository)
         {

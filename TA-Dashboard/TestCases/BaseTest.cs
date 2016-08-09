@@ -16,7 +16,6 @@ namespace TA_Dashboard.TestCases
         public static void AssemblyInitializeMeThod(TestContext testContext)
         {
             //CommonActions.OpenBrowser("chrome");
-            //CommonActions.OpenBrowser("firefox");
             // Get data from external file
             CommonActions.OpenBrowser(TestData.listdata[10]);
         }
