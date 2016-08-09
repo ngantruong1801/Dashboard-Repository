@@ -7,16 +7,16 @@ using TA_Dashboard.PageObjects;
 namespace TA_Dashboard.TestCases
 {
     [TestClass]
-    public class MainPages:BaseTest
+    public class MainPage:BaseTest
     {
-        LoginPage loginPage = new LoginPage();
+        PageObjects.LoginPage loginPage = new PageObjects.LoginPage();
         [TestMethod]
         public void DA_MP_TC012_Verify_that_user_is_able_to_add_additional_pages_besides_Overview_page_successfully()
         {
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
 
-            MainPage mainPage = new MainPage();
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();
             mainPage.OpenAddPageDialog();
 
             NewPage newPage=new NewPage();
