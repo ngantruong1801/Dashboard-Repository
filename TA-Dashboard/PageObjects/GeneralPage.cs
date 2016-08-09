@@ -91,8 +91,7 @@ namespace TA_Dashboard.PageObjects
             WaitForElementLoad(MainPage._tabUser, 3);
             MouseHover(MainPage._tabUser);
             Click(MainPage._tabLogout);
-            Thread.Sleep(1000);
-            //WaitForElementLoad(LoginPage._cboRepository, 3);
+            //Thread.Sleep(1000);
         }
         public void MouseHover(By locator)
         {
