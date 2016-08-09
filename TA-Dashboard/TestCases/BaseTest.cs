@@ -15,9 +15,7 @@ namespace TA_Dashboard.TestCases
         [AssemblyInitialize]
         public static void AssemblyInitializeMeThod(TestContext testContext)
         {
-            //CommonActions.OpenBrowser("firefox");
-            CommonActions.OpenBrowser(TestData.listdata[10]);
-
+            CommonActions.OpenBrowser("firefox");
         }
 
         [TestCleanup]

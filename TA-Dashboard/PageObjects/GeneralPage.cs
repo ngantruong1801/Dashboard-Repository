@@ -88,10 +88,11 @@ namespace TA_Dashboard.PageObjects
         }
 
         public void Logout()
-        {  
-                MouseHover(MainPage._tabUser);
-                Click(MainPage._tabLogout);
-            
+        {
+            WaitForElementLoad(MainPage._tabUser, 3);
+            MouseHover(MainPage._tabUser);
+            Click(MainPage._tabLogout);
+            //Thread.Sleep(1000);
         }
         public void MouseHover(By locator)
         {

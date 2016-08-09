@@ -1,4 +1,4 @@
 URL= http://192.168.189.231:54001/TADashboard/login.jsp
-Username= administrator
-Password= 
-Browser= chrome
+Username= binh.tran
+Password= 123
+Browser= firefox
