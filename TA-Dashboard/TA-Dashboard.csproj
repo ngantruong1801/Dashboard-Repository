@@ -65,18 +65,18 @@
   <ItemGroup>
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\TestData.cs" />
-    <Compile Include="PageObjects\AddNewPanelPage.cs" />
-    <Compile Include="PageObjects\CommonActions.cs" />
-    <Compile Include="PageObjects\DataProfilesPage.cs" />
-    <Compile Include="PageObjects\EditPagePage.cs" />
-    <Compile Include="PageObjects\EditPanelPage.cs" />
-    <Compile Include="PageObjects\GeneralPage.cs" />
-    <Compile Include="PageObjects\GeneralSettingsPage.cs" />
-    <Compile Include="PageObjects\LoginPage.cs" />
-    <Compile Include="PageObjects\MainPage.cs" />
-    <Compile Include="PageObjects\NewPage.cs" />
-    <Compile Include="PageObjects\PanelConfigurationPage.cs" />
-    <Compile Include="PageObjects\PanelsPage.cs" />
+    <Compile Include="PageActions\AddNewPanelPage.cs" />
+    <Compile Include="PageActions\CommonActions.cs" />
+    <Compile Include="PageActions\DataProfilesPage.cs" />
+    <Compile Include="PageActions\EditPagePage.cs" />
+    <Compile Include="PageActions\EditPanelPage.cs" />
+    <Compile Include="PageActions\GeneralPage.cs" />
+    <Compile Include="PageActions\GeneralSettingsPage.cs" />
+    <Compile Include="PageActions\LoginPage.cs" />
+    <Compile Include="PageActions\MainPage.cs" />
+    <Compile Include="PageActions\NewPage.cs" />
+    <Compile Include="PageActions\PanelConfigurationPage.cs" />
+    <Compile Include="PageActions\PanelsPage.cs" />
     <Compile Include="TestCases\LoginPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCases\BaseTest.cs" />
@@ -118,7 +118,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="TestData\" />
+  </ItemGroup>
   <Import Project="packages\Selenium.WebDriver.ChromeDriver.2.22.0.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('packages\Selenium.WebDriver.ChromeDriver.2.22.0.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
