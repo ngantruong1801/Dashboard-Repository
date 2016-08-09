@@ -6,6 +6,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Edge;
 using System.Diagnostics;
+using System.IO;
 
 namespace TA_Dashboard.Common
 {
@@ -61,6 +62,12 @@ namespace TA_Dashboard.Common
             Constant.driver.Navigate().GoToUrl(TestData.dashBoardURL);
         }
 
-       
+        public static string ReadData()
+        {
+            string line = string.Empty;
+            StreamReader sr = new StreamReader("E:\\C#\\Selenium advanced\\SeleniumAdvanced\\TA-Dashboard\\data.txt");
+            line = sr.ReadToEnd();
+            return line;
+        }
     }
 }

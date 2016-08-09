@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TA_Dashboard.PageObjects;
 namespace TA_Dashboard.Common
 {
     class TestData
     {
-        public static string validUsername = "administrator";
-        public static string validPassword = "";
-        public static string dashBoardURL = "http://192.168.189.231:54001/TADashboard/";
+        public static string data = CommonActions.ReadData();
+        public static string[] listdata = data.Split();
+        //public static string validUsername = "administrator";
+        public static string validUsername = listdata[4];
+
+        //public static string validPassword = "";
+        public static string validPassword = listdata[7];
+
+        //public static string dashBoardURL = "http://192.168.189.231:54001/TADashboard/";
+        public static string dashBoardURL = listdata[1];
+
         public static string defaulRepository = "SampleRepository";
         public static string testRepository = "TestRepository";
         public static string invalidUsername = "abc";
