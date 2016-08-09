@@ -2,22 +2,20 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TA_Dashboard.Common;
 using TA_Dashboard.PageObjects;
-using System.Threading;
 
 
 namespace TA_Dashboard.TestCases
 {
     [TestClass]
-    public class Login: BaseTest
+    public class LoginPage: BaseTest
     {
-        LoginPage loginPage = new LoginPage();
+        PageObjects.LoginPage loginPage = new PageObjects.LoginPage();
         [TestMethod]
         public void DA_LOGIN_TC001_Verify_that_user_can_login_specific_repository_successfully_via_Dashboard_login_page_with_correct_credentials()
         {
-            //1. Navigate to Dashboard login page
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
-            MainPage mainPage = new MainPage();        
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();        
             string actualText = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.validUsername, actualText);
         }
@@ -45,7 +43,7 @@ namespace TA_Dashboard.TestCases
         {
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
-            MainPage mainPage = new MainPage();
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();
             mainPage.Logout();
             loginPage.Login(TestData.testRepository, TestData.validUsername, TestData.validPassword);
             string actualText = mainPage.GetWelcomeText();
@@ -57,7 +55,7 @@ namespace TA_Dashboard.TestCases
         {
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.validUsername, TestData.validPassword);
-            MainPage mainPage = new MainPage();
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();
             mainPage.ChooseRepository(TestData.testRepository);
             Assert.IsFalse(mainPage.IsLoginRepositoryDisplay());
             string actualRepository = mainPage.GetRepository();
@@ -69,7 +67,7 @@ namespace TA_Dashboard.TestCases
         {
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.testUsername, TestData.testUppercasePassword);
-            MainPage mainPage = new MainPage();
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();
             string actualText = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.testUsername, actualText);
             mainPage.Logout();
@@ -83,7 +81,7 @@ namespace TA_Dashboard.TestCases
         {
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.uppercaseUsername, TestData.lowercasePassword);
-            MainPage mainPage = new MainPage();
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();
             string actualText1 = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.uppercaseUsername, actualText1);
             mainPage.Logout();
@@ -97,7 +95,7 @@ namespace TA_Dashboard.TestCases
         {
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.specialUsername, TestData.specialCharactersPassword);
-            MainPage mainPage = new MainPage();
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();
             string actualText = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.specialUsername, actualText);
         }
@@ -107,7 +105,7 @@ namespace TA_Dashboard.TestCases
         {
             NavigateTADashboard();
             loginPage.Login(TestData.defaulRepository, TestData.specialCharactersUsername, TestData.specialPassword);
-            MainPage mainPage = new MainPage();
+            PageObjects.MainPage mainPage = new PageObjects.MainPage();
             string actualText = mainPage.GetWelcomeText();
             CheckTextDisplays(TestData.specialCharactersUsername, actualText);
         }
