@@ -1,0 +1,22 @@
+[
+  {
+    "controlName": "repository combobox",
+    "type": "id",
+    "value": "repository"
+  },
+  {
+    "controlName": "username textbox",
+    "type": "xpath",
+    "value": "//input[@id='username']"
+  },
+  {
+    "controlName": "password textbox",
+    "type": "xpath",
+    "value": "//input[@id='password']"
+  },
+  {
+    "controlName": "login button",
+    "type": "classname",
+    "value": "btn-login"
+  }
+]

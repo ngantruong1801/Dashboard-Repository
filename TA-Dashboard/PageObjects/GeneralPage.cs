@@ -4,6 +4,10 @@ using TA_Dashboard.Common;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System.Diagnostics;
+using System.Web.Script.Serialization;
+using System.IO;
+using System.Collections.Generic;
 
 
 namespace TA_Dashboard.PageObjects
@@ -27,6 +31,67 @@ namespace TA_Dashboard.PageObjects
         public IWebElement FindWebElement(By locator)
         {
             return Constant.driver.FindElement(locator);
+        }
+
+        private static string GetClassCaller(int level = 4)
+        {
+            var m = new StackTrace().GetFrame(level).GetMethod();
+
+            // .Name is the name only, .FullName includes the namespace
+            string className = m.DeclaringType.Name;
+            string methodName = m.Name;
+            //if (className.Contains("LowLevelActions"))
+            //    return className.Replace("LowLevelActions", "");
+            //else
+            //    return className.Replace("HighLevelActions", "");
+            return className;
+        }
+
+        public class control
+        {
+            public string controlName { get; set; }
+            public string type { get; set; }
+            public string value { get; set; }
+        }
+
+        public string[] GetControlValue(string nameControl)
+        {
+            string page = GetClassCaller();
+            Console.WriteLine(page);
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+            path = path.Replace("\\bin\\Debug", "");
+            Console.WriteLine(path.Replace("\\bin\\Debug",""));
+            string content = File.ReadAllText(path + @"\Interfaces\" + page + ".json");
+            Console.WriteLine(path + @"\Interfaces\" + page + ".json");
+            var result = new JavaScriptSerializer().Deserialize<List<control>>(content);
+            string[] control = new string[2];
+            foreach (var item in result)
+            {
+                if (item.controlName.Equals(nameControl))
+                {
+                    control[0] = item.type;
+                    control[1] = item.value;
+                    return control;
+                }
+            }
+            return null;
+        }
+
+
+        public IWebElement FindWebElement1(string name)
+        {
+            string[] control = GetControlValue(name);
+            switch (control[0].ToUpper())
+            {
+                case "ID":
+                    return Constant.driver.FindElement(By.Id(control[1]));
+                case "NAME":
+                    return Constant.driver.FindElement(By.Name(control[1]));
+                case "CLASSNAME":
+                    return Constant.driver.FindElement(By.ClassName(control[1]));
+                default:
+                    return Constant.driver.FindElement(By.XPath(control[1]));
+            }
         }
 
         public void Click(By locator)
