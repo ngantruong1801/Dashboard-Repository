@@ -14,6 +14,7 @@ namespace TA_Dashboard.PageObjects
     {
         #region Locators
         public static readonly By _tabUser = By.XPath("//a[@href='#Welcome']");
+        //public static readonly By _tabUser = By.XPath("//a[.='administrator']");
         public static readonly By _tabRepository = By.XPath("//a[@href='#Repository']");
         public static readonly By _tabAdminister = By.XPath("//a[@href='#Administer']");
         public static readonly By _tabGlobalSetting = By.XPath("//li[@class='mn-setting']/a");
@@ -96,8 +97,10 @@ namespace TA_Dashboard.PageObjects
         public void Logout()
         {
             WaitForElementLoad(MainPage._tabUser, 3);
-            MouseHover(MainPage._tabUser);
+            //MouseHover(MainPage._tabUser);
+            Click(MainPage._tabUser);
             Click(MainPage._tabLogout);
+            Thread.Sleep(1000);
         }
 
         public void MouseHover(By locator)
@@ -112,7 +115,7 @@ namespace TA_Dashboard.PageObjects
             if (timeoutInSeconds > 0)
             {
                 WebDriverWait wait = new WebDriverWait(Constant.driver, TimeSpan.FromSeconds(timeoutInSeconds));
-                wait.Until(ExpectedConditions.ElementIsVisible(locator));
+                wait.Until(ExpectedConditions.ElementExists(locator));
             }
         }
 
