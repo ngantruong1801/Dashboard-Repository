@@ -15,11 +15,13 @@ namespace TA_Dashboard.PageObjects
         public static readonly By _subTabAddPage = By.XPath("//div[@id='main-menu']//a[@class='add' and .='Add Page']");
         public static readonly By _subTabCreateProfile = By.XPath("//a[.='Create Profile']");
         public static readonly By _subTabCreatePanel = By.XPath("//a[.='Create Panel']");
-        public static readonly By _subTabDelete = By.XPath(".//a[@class='delete' and .='Delete']");
+        //public static readonly By _subTabDelete = By.XPath("//a[@class='delete' and .='Delete']");
+        public static readonly By _subTabDelete = By.XPath("//a[.='Delete']");
         public static readonly By _btnChoosePanels = By.Id("btnChoosepanel");
         public static readonly By _tabOverview = By.XPath("//a[.='Overview']");
         public static readonly By _tabExecutionDashboard = By.XPath("//a[.='Execution Dashboard']");
-        public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+        //public static readonly By _tabLogout = By.XPath("//div[@id='header']//a[.='Logout']");
+        public static readonly By _tabLogout = By.XPath("//a[.='Logout']");
         #endregion
 
         #region Methods
